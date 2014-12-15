@@ -1,0 +1,1 @@
+Klasy reprezentujące encje(tabele) w bazie danych. 

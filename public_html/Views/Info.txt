@@ -1,0 +1,1 @@
+Klasy generujące kontent, odpalające właściwe widoki. 

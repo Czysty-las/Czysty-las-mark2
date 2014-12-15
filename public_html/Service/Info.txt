@@ -1,0 +1,2 @@
+Zbiór zaawansowanych funkcjonalności. 
+Np. Klasa nawiązująca połączenie z baza. 
