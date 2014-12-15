@@ -1,1 +1,4 @@
 Widoki. Pliki html, zawierające GIU.  
+
+Specyfikacje nazewnictwa: 
+FunkcjaModel

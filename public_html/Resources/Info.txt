@@ -1,1 +1,3 @@
-Zasoby aplikacji
+Zasoby aplikacji.
+
+Np zdjęcia przechowywane w galeriach itp. 

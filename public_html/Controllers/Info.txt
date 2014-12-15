@@ -1,1 +1,6 @@
 Klasy reprezentujące encje(tabele) w bazie danych. 
+
+Specyfikacje nazewnictwa: 
+FunkcjaController
+
+

@@ -37,3 +37,4 @@ class LogService {
 
     //put your code here
 }
+?>

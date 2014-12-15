@@ -1,2 +1,5 @@
 Zbiór zaawansowanych funkcjonalności. 
 Np. Klasa nawiązująca połączenie z baza. 
+
+Specyfikacje nazewnictwa: 
+FunkcjaService
