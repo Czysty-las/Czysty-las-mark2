@@ -12,29 +12,21 @@
  * @author Lukasz
  */
 class LogService {
-    
-    private $toFile;    //  Logowanie do pliku, czy do widoku.
-    
-    public function __construct($_toFile) {
-        $this->toFile = $_toFile;
-    }
-    
-    public function log($_contents){
-        
-    }
-    
-    public function  message($_contents){
-        
-    }
-    
-    public function warning($_contents){
-        
-    }
-    
-    public function error($_contents){
+    public static function log($_contents) {
         
     }
 
-    //put your code here
+    public static function message($_contents) {
+        
+    }
+
+    public static function warning($_contents) {
+        
+    }
+
+    public static function error($_contents) {
+        
+    }
 }
+
 ?>

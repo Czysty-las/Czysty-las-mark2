@@ -2,20 +2,20 @@
 /* ----- Zbiór wszystkich bibliotek ----- */
 
 
-// <editor-fold desc="Definicje globalne.">
+// <editor-fold desc="Definicje globalne." defaultstate="collapsed">
 
 //TODO
 
 // </editor-fold>
 
-// <editor-fold desc="Region 1.">
+// <editor-fold desc="Region 1." defaultstate="collapsed">
 
 //TODO
 
 
 // </editor-fold>
 
-// <editor-fold desc="Region 2.">
+// <editor-fold desc="Region 2." defaultstate="collapsed">
 
 //TODO
 
