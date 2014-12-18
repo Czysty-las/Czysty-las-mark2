@@ -12,6 +12,7 @@
  * @author Lukasz
  */
 class LogService {
+
     public static function log($_contents) {
         
     }
@@ -24,9 +25,16 @@ class LogService {
         
     }
 
-    public static function error($_contents) {
-        
+    public static function error($_source, $_message) {
+
+        $dir = '.' . DIRECTORY_SEPARATOR . 'Logs' . DIRECTORY_SEPARATOR . 'errors.log';
+        $logFile = fopen($dir, 'a');
+        $log = "Error at: " . $_source . ' ' . date("m.d.y H:m:s") . ' ' . $_message . " \r\n";
+        fwrite($logFile, $log);
+
+        fclose($logFile);
     }
+
 }
 
 ?>
