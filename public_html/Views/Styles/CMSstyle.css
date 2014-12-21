@@ -1,0 +1,338 @@
+/* 
+    Created on : 2014-10-10, 16:25:56
+    Author     : Lukasz
+*/
+/*<editor-fold desc="Formowanie ogólne" defaultstate="collapsed">*/
+
+html
+{
+    font-family: tahoma;
+    background-color: #84af4b;
+}
+
+body
+{   
+    margin: 0; 
+    height: 100%
+}
+form
+{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+/*</editor-fold>*/
+
+/*<editor-fold desc="Nagłówk" defaultstate="collapsed">*/
+
+.label 
+{
+    width: 100%;
+    height: 100px;
+    padding: 0 0 0 0;
+    background-color: #70a031;
+}
+
+.titleDivision
+{
+    width: 33.33%;
+    height: 100px;
+    position: relative;
+    float: left;
+}
+
+#CMSname
+{
+    font-size: 30px;
+    color: white;
+}
+
+#pageTitle
+{
+    font-size: 40px;
+    color: white;
+}
+
+.pageTitles
+{
+    text-align: center;
+    display: table-cell;
+    vertical-align:middle;    
+}
+
+.titleContainer
+{
+    width: 100%;
+    height: 100px;
+    display: table;
+}
+
+
+/*<editor-fold desc="Opcje urzytkownika" defaultstate="collapsed">*/
+
+.userMenu
+{
+    width: 200px;
+    height: 100px;
+    float: right;
+    overflow: hidden;
+    position: relative;
+}
+
+.userOption
+{
+    width: 200px;
+    height: 100px;
+    display: table;
+    background-color: #70a031;
+    color: white;
+}
+
+.userName 
+{
+    width: 200px;
+    height: 100px;
+    display: table;
+    color: white;    
+}
+
+.userMenu:hover
+{
+    height: 400px;
+}
+
+.UsersList 
+{
+    width: 30%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    float: left;
+}
+
+.UsersListItem
+{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    display: block;
+    margin: 2px 0 2px 0;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.UsersDetails 
+{
+    width: 70%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    float: left;
+}
+
+.UsersDetails h1
+{
+    text-align: center;
+    color: white;
+    font-family: tahoma;
+}
+
+/*</editor-fold>*/
+/*</editor-fold>*/
+
+/*<editor-fold desc="Nawigacja" defaultstate="collapsed">*/
+
+/*<editor-fold desc="Kontenery nawigacji" defaultstate="collapsed">*/
+
+.optionBelt 
+{
+    margin: 40px auto;
+    min-height: 100px;
+    width: 80%;
+}
+
+.optionsTitle
+{
+    width: 100px;
+    height: 100px;
+    float: left;
+    text-align: left;
+    margin: 0 2px 0 0;
+    color: white;
+}
+
+#content
+{
+    background-color: #a7393b;    
+}
+
+#menage
+{
+    background-color: #5099a6;    
+}
+
+.title
+{
+    margin: 0;
+    padding: 10px 10px;
+}
+
+.option
+{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    background-color: #70a031;
+    margin: 0 2px 0 2px;
+}
+
+/*</editor-fold>*/
+/*<editor-fold desc="Ikonki" defaultstate="collapsed">*/
+
+#news
+{
+    background-image: url(../Images/newsy_button.png);
+}
+
+#news:hover
+{
+    background-image: url(../Images/newsy_button.png), url(../Images/hover.png);    
+}
+
+#calender
+{
+    background-image: url(../Images/calendarium_button.png);
+}
+
+#calender:hover
+{
+    background-image: url(../Images/calendarium_button.png), url(../Images/hover.png);        
+}
+
+#gallery
+{
+    background-image: url(../Images/gallery_button.png);   
+}
+
+#gallery:hover
+{
+    background-image: url(../Images/gallery_button.png), url(../Images/hover.png);          
+}
+
+#InForest
+{
+    background-image: url(../Images/w_lesie_button.png);       
+}
+
+#InForest:hover
+{
+    background-image: url(../Images/w_lesie_button.png), url(../Images/hover.png);  
+}
+
+#UpCycling
+{
+    background-image: url(../Images/upcycling_button.png);           
+}
+
+#UpCycling:hover
+{
+    background-image: url(../Images/upcycling_button.png), url(../Images/hover.png);  
+}
+
+#users
+{
+    background-image: url(../Images/users_button.png);           
+}
+
+#users:hover
+{
+    background-image: url(../Images/users_button.png), url(../Images/hover.png);     
+}
+
+#config
+{
+    background-image: url(../Images/settings_button.png);              
+}
+
+#config:hover
+{
+    background-image: url(../Images/settings_button.png), url(../Images/hover.png);   
+}
+
+#tasks
+{
+    background-image: url(../Images/zadania_button.png);     
+}
+
+#tasks:hover
+{
+    background-image: url(../Images/zadania_button.png), url(../Images/hover.png);       
+}
+
+#help
+{
+    background-image: url(../Images/help_button.png);                  
+}
+
+#home
+{
+    margin: 0 auto;
+    background-image: url(../Images/homepage_button.png);
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+#home:hover
+{
+    background-image: url(../Images/homepage_button.png), url(../Images/hover.png);    
+}
+/*</editor-fold>*/
+/*</editor-fold>*/
+
+.logIn
+{
+    margin: 5% auto;
+    width: 50%;
+    height: 60%;
+    background-color: #70a031;
+    
+    position: relative;
+}
+
+.logIn div
+{
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    display: block;
+
+    width: 80%;
+
+    position: absolute;
+}
+
+.logIn input
+{
+    width: 100%;
+    height: 60px;
+    
+    border: 0;
+    
+    margin-bottom: 5px;
+    font-size: 25px;    
+}
+
+.logIn button
+{
+    display: block;
+    margin: 0 auto;
+    height: 60px;
+    width: 50%;
+    border: 0;
+    
+    background-color: #a7393b;
+    color: white;
+    font-size: 30px;
+}
