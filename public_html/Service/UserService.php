@@ -5,23 +5,30 @@
  *
  * @author Lukasz
  */
+include '.' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'UserModel.php';
 
-include '.'.DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR.'UserModel.php';
 class UserService {
 
-    static function LogIn($_login, $_password) {
+    public static function LogIn($_login, $_password) {
         $stmt = DataBaseService::Query(0, "SELECT * FROM `users` WHERE `Login` LIKE '$_login' AND `Password` LIKE '$_password'");
 
         if ($stmt != NULL) {
-            $tmp =  new UserModel;
-            while ($row = $stmt ->fetch()) {
-               $tmp->Name = $row['Name'];
-               $tmp->Surname = $row['Surname'];
-               $_SESSION['User'] = $tmp;
+            $_SESSION['User'] = new UserModel;
+            while ($row = $stmt->fetch()) {
+                $_SESSION['User']->Name = $row['Name'];
+                $_SESSION['User']->Surname = $row['Surname'];
+                self::AssignPermissions($row['Rights']);
             }
-            
-            
         }
     }
 
+    public static function LogOff() {
+        $_SESSION['User'] = NULL;
+    }
+    
+    public static function AssignPermissions($_rights){
+       $_SESSION['User'] ->Rights = explode(".", $_rights);
+    }
+    
+    
 }

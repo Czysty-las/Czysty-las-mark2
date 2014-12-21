@@ -11,6 +11,18 @@
  *
  * @author Lukasz
  */
+
+define("userLvL", 0);
+define("news", 1);
+define("calendar", 2);
+define("gallery", 3);
+define("InForest", 4);
+define("UpCycling", 5);
+define("users", 6);
+define("config", 7);
+define("tasks", 8);
+
+
 class UserModel {
     public $Name;
     public $Surname;
@@ -19,5 +31,5 @@ class UserModel {
     public $Mail;
     
     
-    public $Rights;  // "1.1.1.1.0.2.2.3";
+    public $Rights = array();  // "1.1.1.1.0.2.2.3";
 }

@@ -199,12 +199,12 @@ form
     background-image: url(../Images/newsy_button.png), url(../Images/hover.png);    
 }
 
-#calender
+#calendar
 {
     background-image: url(../Images/calendarium_button.png);
 }
 
-#calender:hover
+#calendar:hover
 {
     background-image: url(../Images/calendarium_button.png), url(../Images/hover.png);        
 }

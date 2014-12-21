@@ -19,6 +19,15 @@ if (isset($_POST['function'])) {
             break;
     }
 }
+
+if (isset($_GET['function'])) {
+    switch ($_GET['function']) {
+        case 'logoff';
+            UserService::LogOff();
+            break;
+    }
+}
+
 // </editor-fold>
 
 

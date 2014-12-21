@@ -90,31 +90,31 @@ class DataBaseService {
                 $line = fgets($configFile);                                         //  Pobranie lini pliku
 
                 if (strstr($line, "# Start DB")) {                                  //  Znacznik początku konfiguracji bazy danych
-                    DataBaseService::$dbStatus[DataBaseService::$index] = new DataBaseStatus();
+                    self ::$dbStatus[self ::$index] = new DataBaseStatus();
                 } else if (strstr($line, "# End DB")) {                             //  Znacznik końca konfuguracji bazy nadych
-                    ++DataBaseService::$index;
+                    ++self ::$index;
                 } else {
 
                     $db = explode(";", $line);
 
                     if (strstr($db[0], "HOST")) {                                   //  Odczytanie hosta
                         if (isset($db[1])) {
-                            DataBaseService::$dbStatus[DataBaseService::$index]->dbInfo->host = $db[1];
+                            self ::$dbStatus[self ::$index]->dbInfo->host = $db[1];
                         }
                     }
                     if (strstr($db[0], "USER")) {                                   //  Odczytanie urztkownika
                         if (isset($db[1])) {
-                            DataBaseService::$dbStatus[DataBaseService::$index]->dbInfo->user = $db[1];
+                            self ::$dbStatus[self ::$index]->dbInfo->user = $db[1];
                         }
                     }
                     if (strstr($db[0], "PASSW")) {                                  //  Odczytanie hasła
                         if (isset($db[1])) {
-                            DataBaseService::$dbStatus[DataBaseService::$index]->dbInfo->passW = $db[1];
+                            self ::$dbStatus[self ::$index]->dbInfo->passW = $db[1];
                         }
                     }
                     if (strstr($db[0], "DB")) {                                     //  Odczytanie właściwa baza
                         if (isset($db[1])) {
-                            DataBaseService::$dbStatus[DataBaseService::$index]->dbInfo->DB = $db[1];
+                            self ::$dbStatus[self ::$index]->dbInfo->DB = $db[1];
                         }
                     }
                 }
@@ -132,24 +132,24 @@ class DataBaseService {
         $i = 0;
         if (!$_connectTo) {   //Połączenie do wszystkich.
             
-            foreach (DataBaseService::$dbStatus as $_db) {
-                DataBaseService::$db[$i] = $_db->dbInfo->Connect();
+            foreach (self ::$dbStatus as $_db) {
+                self ::$db[$i] = $_db->dbInfo->Connect();
 
-                if (DataBaseService::$db[$i] != NULL) {     //  Jeśli obiekt został stworzony
-                    DataBaseService::$dbStatus[$i]->isConnected = true;                 //  Aktualizacja statusu
-                    DataBaseService::$dbStatus[$i]->connectionErrors = "No errors";     //  bazy danych.
+                if (self ::$db[$i] != NULL) {     //  Jeśli obiekt został stworzony
+                    self ::$dbStatus[$i]->isConnected = true;                 //  Aktualizacja statusu
+                    self ::$dbStatus[$i]->connectionErrors = "No errors";     //  bazy danych.
                 } else {                        //  w przeciwnym razie
-                    DataBaseService::$dbStatus[$i]->isConnected = false;                //  Aktualizacja statusu
-                    DataBaseService::$dbStatus[$i]->connectionErrors = "Error!";        //  bazy danych.
+                    self ::$dbStatus[$i]->isConnected = false;                //  Aktualizacja statusu
+                    self ::$dbStatus[$i]->connectionErrors = "Error!";        //  bazy danych.
                 }
 
                 ++$i;
             }
         } else {               //  Połączenie do wybranej.
-            if ($_connectTo > DataBaseService::$index || $_connectTo < 0) {
+            if ($_connectTo > self ::$index || $_connectTo < 0) {
                 throw new Exception;    // Zwracany jest wyjątek jeśli podany został niewłaściwy index bazy danych
             } else {
-                DataBaseService::$dbStatus[$_connectTo]->dbInfo->Conect();
+                self ::$dbStatus[$_connectTo]->dbInfo->Conect();
             }
         }
     }
@@ -160,10 +160,10 @@ class DataBaseService {
 
     public static function Query($_indexDB, $_query) {
 
-        if ($_indexDB > DataBaseService::$index || $_indexDB < 0) {
+        if ($_indexDB > self ::$index || $_indexDB < 0) {
             throw new Exception;    // Zwracany jest wyjątek jeśli podany został niewłaściwy index bazy danych
         } else {
-            return DataBaseService::$db[$_indexDB]->query($_query);
+            return self::$db[$_indexDB]->query($_query);
         }
     }
 
