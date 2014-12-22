@@ -10,25 +10,6 @@ DataBaseService::Initialize();
 DataBaseService::Connect(ALL);
 
 // </editor-fold >
-// <editor-fold desc="Akcje" defaultstate="collapsed">
-
-if (isset($_POST['function'])) {
-    switch ($_POST['function']) {
-        case 'login';
-            UserService::LogIn($_POST['login'], $_POST['password']);
-            break;
-    }
-}
-
-if (isset($_GET['function'])) {
-    switch ($_GET['function']) {
-        case 'logoff';
-            UserService::LogOff();
-            break;
-    }
-}
-
-// </editor-fold>
 
 
 /* ----- Główny HUB aplikacji ----- */
@@ -41,6 +22,26 @@ if (!isset($_GET['page'])) {
 }
 
 if ($_GET['page'] == 'index') {
+    // <editor-fold desc="Akcje logowanie i wylogowania." defaultstate="collapsed">
+
+    if (isset($_POST['function'])) {
+        switch ($_POST['function']) {
+            case 'login';
+                UserService::LogIn($_POST['login'], $_POST['password']);
+                break;
+        }
+    }
+
+    if (isset($_GET['function'])) {
+        switch ($_GET['function']) {
+            case 'logoff';
+                UserService::LogOff();
+                break;
+        }
+    }
+
+// </editor-fold>
+
     if (isset($_SESSION['User'])) {
         include './Views/ContentManagementSystemView.php';
     } else {

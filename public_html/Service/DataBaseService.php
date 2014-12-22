@@ -73,7 +73,6 @@ class DataBaseService {
     private static $db;
 
     // </editor-fold>
-    // <editor-fold desc="Konstruktory" defaultstate="collapsed">
 
     public static function Initialize() {
         // <editor-fold desc="Parser pliku konfiguracyjnego bazy danych." defaultstate="collapsed">
@@ -126,12 +125,11 @@ class DataBaseService {
         // </editor-fold>
     }
 
-    // </editor-fold>
-
     public static function Connect($_connectTo) {
+        // <editor-fold desc="Funkcja połaczeniowa" defaultstate="collapsed">
+
         $i = 0;
         if (!$_connectTo) {   //Połączenie do wszystkich.
-            
             foreach (self ::$dbStatus as $_db) {
                 self ::$db[$i] = $_db->dbInfo->Connect();
 
@@ -152,6 +150,7 @@ class DataBaseService {
                 self ::$dbStatus[$_connectTo]->dbInfo->Conect();
             }
         }
+        // </editor-fold>
     }
 
     public static function disconnect() {

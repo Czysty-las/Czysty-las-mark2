@@ -290,6 +290,8 @@ form
 /*</editor-fold>*/
 /*</editor-fold>*/
 
+/*<editor-fold desc="Logowanie" defaultstate="collapsed">*/
+
 .logIn
 {
     margin: 5% auto;
@@ -336,3 +338,5 @@ form
     color: white;
     font-size: 30px;
 }
+
+/*</editor-fold>*/
