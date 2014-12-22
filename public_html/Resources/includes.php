@@ -12,6 +12,8 @@
 
 include '.'.DIRECTORY_SEPARATOR.'Service'.DIRECTORY_SEPARATOR.'DataBaseService.php';
 include '.'.DIRECTORY_SEPARATOR.'Service'.DIRECTORY_SEPARATOR.'UserService.php';
+
+include '.'.DIRECTORY_SEPARATOR.'Controllers'.DIRECTORY_SEPARATOR.'UsersController.php';
 // </editor-fold>
 
 // <editor-fold desc="Region 2." defaultstate="collapsed">

@@ -18,10 +18,11 @@ DataBaseService::Connect(ALL);
 // <editor-fold desc="Rooting." defaultstate="collapsed">
 
 if (!isset($_GET['page'])) {
-    $_GET['page'] = 'index';
+    $_GET['page'] = 'CMS';
 }
+$_SESSION['usersC'] = new UsersController;
 
-if ($_GET['page'] == 'index') {
+if ($_GET['page'] == 'CMS') {
     // <editor-fold desc="Akcje logowanie i wylogowania." defaultstate="collapsed">
 
     if (isset($_POST['function'])) {
@@ -43,7 +44,16 @@ if ($_GET['page'] == 'index') {
 // </editor-fold>
 
     if (isset($_SESSION['User'])) {
-        include './Views/ContentManagementSystemView.php';
+
+        if (isset($_GET['function'])) {
+            switch ($_GET['function']) {
+                case 'users';
+                    $_SESSION['usersC']->Read();
+                    break;
+            }
+        } else {
+            include './Views/ContentManagementSystemView.php';
+        }
     } else {
         include './Views/LogInView.php';
     }
