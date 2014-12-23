@@ -24,6 +24,7 @@ define("tasks", 8);
 
 
 class UserModel {
+    public $Id;
     public $Name;
     public $Surname;
     public $Sex;

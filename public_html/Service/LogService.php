@@ -13,12 +13,18 @@
  */
 class LogService {
 
-    public static function log($_contents) {
-        
+    private static function log($_type, $_file, $_source, $_message) {
+
+        $dir = '.' . DIRECTORY_SEPARATOR . 'Logs' . DIRECTORY_SEPARATOR . $_file;
+        $logFile = fopen($dir, 'a');
+        $log = "\r\n".$_type . $_source . ' ' . date("m.d.y H:m:s") . ' ' . $_message ;
+        fwrite($logFile, $log);
+
+        fclose($logFile);
     }
 
-    public static function message($_contents) {
-        
+    public static function message($_source, $_message) {
+        self::log("Message", 'messages.log', $_source, $_message);
     }
 
     public static function warning($_contents) {
@@ -26,13 +32,7 @@ class LogService {
     }
 
     public static function error($_source, $_message) {
-
-        $dir = '.' . DIRECTORY_SEPARATOR . 'Logs' . DIRECTORY_SEPARATOR . 'errors.log';
-        $logFile = fopen($dir, 'a');
-        $log = "Error at: " . $_source . ' ' . date("m.d.y H:m:s") . ' ' . $_message . " \r\n";
-        fwrite($logFile, $log);
-
-        fclose($logFile);
+        self::log("Error", 'errors.log', $_source, $_message);
     }
 
 }

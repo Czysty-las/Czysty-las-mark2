@@ -44,6 +44,19 @@ if ($_GET['page'] == 'CMS') {
 // </editor-fold>
 
     if (isset($_SESSION['User'])) {
+        // <editor-fold desc="Akcje">
+        
+        // <editor-fold desc="Edycja urzytkownika">
+        if(isset($_GET['action']) && $_GET['user']){
+            switch ($_GET['action']){
+                case "delete":
+                    $_SESSION['usersC']->Delete($_GET['user']);
+                    break;
+            }
+        }
+        // </editor-fold>
+         
+        // <editor-fold>
 
         if (isset($_GET['function'])) {
             switch ($_GET['function']) {

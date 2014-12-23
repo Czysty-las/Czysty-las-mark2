@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="titleDivision">
-        <a id="home" href="index.php?function=menu"></a>
+        <a id="home" href="index.php"></a>
     </div>
     <div class="titleDivision">
         <div class="userMenu">

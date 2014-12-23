@@ -35,5 +35,5 @@ abstract class Controller {
      * Funkcja usuwająca wpisy z bazy danych.
      */
 
-    public abstract function Delete();
+    public abstract function Delete($_ID);
 }
