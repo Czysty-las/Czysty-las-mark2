@@ -20,7 +20,9 @@ DataBaseService::Connect(ALL);
 if (!isset($_GET['page'])) {
     $_GET['page'] = 'CMS';
 }
-$_SESSION['usersC'] = new UsersController;
+if (!isset($_SESSION['usersC'])) {
+    $_SESSION['usersC'] = new UsersController;
+}
 
 if ($_GET['page'] == 'CMS') {
     // <editor-fold desc="Akcje logowanie i wylogowania." defaultstate="collapsed">
@@ -45,17 +47,15 @@ if ($_GET['page'] == 'CMS') {
 
     if (isset($_SESSION['User'])) {
         // <editor-fold desc="Akcje">
-        
         // <editor-fold desc="Edycja urzytkownika">
-        if(isset($_GET['action']) && $_GET['user']){
-            switch ($_GET['action']){
+        if (isset($_GET['action']) && $_GET['user']) {
+            switch ($_GET['action']) {
                 case "delete":
                     $_SESSION['usersC']->Delete($_GET['user']);
                     break;
             }
         }
         // </editor-fold>
-         
         // <editor-fold>
 
         if (isset($_GET['function'])) {

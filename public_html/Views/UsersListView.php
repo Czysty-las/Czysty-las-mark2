@@ -19,7 +19,7 @@
                         <td>Szukaj:</td><td colspan="3"><input class="search" type="text" placeholder="..."></td><td><button>Szukaj</button></td>
                     </tr>
                     <tr>
-                        <td></td><td><a href="index.php?function=users&sort=name">Imie</a></td><td><a href="index.php?function=users&sort=surname">Nazwisko</a></td><td><a href="index.php?function=users&sort=age">Wiek</a></td><td><a href="index.php?function=users&sort=sex">Płeć</a></td>
+                        <td></td><td><a href="index.php?function=users&sort=Name">Imie</a></td><td><a href="index.php?function=users&sort=Surname">Nazwisko</a></td><td><a href="index.php?function=users&sort=Age">Wiek</a></td><td><a href="index.php?function=users&sort=Sex">Płeć</a></td>
                     </tr>
                     <?php foreach ($_SESSION['rez'] as $user) { ?>
                         <tr>
