@@ -104,7 +104,7 @@
                         <td>Pełne</td>
                         <td><input type="radio" name="users" <?php if ($_SESSION['rez']->Rights[users] == 1) { ?>checked="checked"<?php } ?>/></td>
                         <td><input type="radio" name="tasks" <?php if ($_SESSION['rez']->Rights[tasks] == 1) { ?>checked="checked"<?php } ?>/></td>
-                        <td>Podstawowe</td>
+                        <td>Podstawowa</td>
                         <td><input type="radio" name="config" <?php if ($_SESSION['rez']->Rights[config] == 1) { ?>checked="checked"<?php } ?> </td>
                     </tr>
                     <tr>
@@ -112,11 +112,14 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>Pełne</td>
+                        <td>Pełna</td>
                         <td><input type="radio" name="config" <?php if ($_SESSION['rez']->Rights[config] == 1) { ?>checked="checked"<?php } ?>  <?php if ($_SESSION['rez']->Rights[userLvL] == 2) { ?>checked="checked"<?php } ?>/></td>
                     </tr>
-
                 </table>
+                <div class="buttonHolder">
+                    <button class="formButton" type="submit">Zapisz</button>
+                    <a class="formButton" href="index.php?function=users">Wróć</a>
+                </div>
             </form>
         </div>
     </body>
