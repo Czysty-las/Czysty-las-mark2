@@ -83,7 +83,7 @@ class UsersController extends Controller {
             $user->Surname = $row['Surname'];
             $user->Age = $row['Age'];
             $user->Sex = $row['Sex'];
-            $user->Rights = $row['Rights'];
+            $user->Rights = UserService::GetRights($row['Rights']);
         }
 
         $_SESSION['rez'] = $user;

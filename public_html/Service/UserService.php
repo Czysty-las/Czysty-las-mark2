@@ -30,5 +30,9 @@ class UserService {
        $_SESSION['User'] ->Rights = explode(".", $_rights);
     }
     
+    public static function GetRights($_rights){
+        return explode(".", $_rights);
+    }
+    
     
 }
