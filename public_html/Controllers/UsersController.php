@@ -16,8 +16,8 @@ class UsersController extends Controller {
         
     }
 
-    public function Delete($_ID) {
-        $q = "DELETE FROM `users` WHERE `users`.`ID` = " . $_ID;
+    public function Delete() {
+        $q = "DELETE FROM `users` WHERE `users`.`ID` = " . $_GET['user'];
 
         $stmt = DataBaseService::Query(0, $q);
 
@@ -29,8 +29,7 @@ class UsersController extends Controller {
     }
 
     public function Read() {
-        $q = "SELECT * FROM `users`";
-
+        $q = "SELECT * FROM `users`";   //  Generowanie zapytania.
         // <editor-fold desc="Sortowanie." defaultstate="collapsed">
 
         if (isset($_GET['sort'])) {
@@ -67,14 +66,28 @@ class UsersController extends Controller {
 
 
         $_SESSION['rez'] = $users;
-        
+
         // </editor-fold>
 
-        include './Views/UsersListView.php';
+        include './Views/UsersListView.php';    //  Zwracanie widoku.
     }
 
     public function Update() {
-        
+        $q = "SELECT `Name`, `Surname`, `Age`, `Sex`, `Login`, `Password`, `Rights` FROM `users` WHERE `ID` = " . $_GET['user'];
+
+        $stmt = DataBaseService::Query(0, $q);
+
+        $user = new UserModel();
+        foreach ($stmt as $row) {
+            $user->Name = $row['Name'];
+            $user->Surname = $row['Surname'];
+            $user->Age = $row['Age'];
+            $user->Sex = $row['Sex'];
+            $user->Rights = $row['Rights'];
+        }
+
+        $_SESSION['rez'] = $user;
+        include './Views/UsersEditView.php';
     }
 
 }

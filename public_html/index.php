@@ -47,11 +47,14 @@ if ($_GET['page'] == 'CMS') {
 
     if (isset($_SESSION['User'])) {
         // <editor-fold desc="Akcje">
-        // <editor-fold desc="Edycja urzytkownika">
+        // <editor-fold desc="CRUD urzytkownika" defaultstate="collapsed">
         if (isset($_GET['action']) && $_GET['user']) {
             switch ($_GET['action']) {
                 case "delete":
-                    $_SESSION['usersC']->Delete($_GET['user']);
+                    $_SESSION['usersC']->Delete();
+                    break;
+                case "edit":
+                    $_SESSION['usersC']->Update();
                     break;
             }
         }
@@ -65,7 +68,9 @@ if ($_GET['page'] == 'CMS') {
                     break;
             }
         } else {
-            include './Views/ContentManagementSystemView.php';
+            if (!isset($_GET['action'])) {
+                include './Views/ContentManagementSystemView.php';
+            }
         }
     } else {
         include './Views/LogInView.php';

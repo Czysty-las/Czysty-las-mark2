@@ -362,7 +362,7 @@ a:hover
     height: 85%;
     background-color: #70a031;
     
-    margin: 0 auto;
+    margin: 0px auto;
 }
 
 .usersModule table, tr, td
@@ -406,6 +406,54 @@ a:hover
     height: 100%;
     border: 0;
     font-size: 15px;
+}
+
+.usersModule .formHolder
+{
+    width: 60%;
+    float: left;
+}
+
+.usersModule .inputHolder
+{
+    width: 90%;
+    height: 30px;
+    
+    margin: 0px auto 2px auto;
+    padding: 0;
+    
+    display: block;
+}
+
+.usersModule .inputHolder label
+{
+   width: 30%;
+   height: 100%;
+   
+   display: block;
+   float: left;
+}
+
+.usersModule .photoHolder
+{
+    width: 40%;
+    height: 40%;
+    
+    background-color: aqua;
+    float: left;
+    display: block;     
+}
+
+.usersModule .inputHolder input, select
+{
+   width: 70%;
+   height: 100%;
+    
+}
+
+.tableRights td
+{
+    width: 10%;
 }
 
 /*</editor-fold>*/

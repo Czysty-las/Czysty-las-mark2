@@ -23,7 +23,7 @@
                     </tr>
                     <?php foreach ($_SESSION['rez'] as $user) { ?>
                         <tr>
-                            <td><input type="checkbox" name="selected_<?php echo $i; ?>" value="selected"<?php if ($all) { ?>checked="checked"<?php } ?>/><a href="index.php?action=edit&user=<?php echo $user->Id; ?>">Edytuj</a><a href="index.php?action=delete&user=<?php echo $user->Id; ?>">Usuń</a><a href="index.php?action=ban&user=<?php echo $user->Id; ?>">Zablokuj</a></td><td><?php echo $user->Name; ?></td><td><?php echo $user->Surname; ?></td><td><?php echo $user->Age; ?></td><td><?php
+                            <td><input type="checkbox" name="selected_<?php echo $i; ?>" value="<?php echo $user->Id; ?>"<?php if ($all) { ?>checked="checked"<?php } ?>/><a href="index.php?action=edit&user=<?php echo $user->Id; ?>">Edytuj</a><a href="index.php?action=delete&user=<?php echo $user->Id; ?>">Usuń</a><a href="index.php?action=ban&user=<?php echo $user->Id; ?>">Zablokuj</a></td><td><?php echo $user->Name; ?></td><td><?php echo $user->Surname; ?></td><td><?php echo $user->Age; ?></td><td><?php
                                 if ($user->Sex == 'M') {
                                     echo 'Mężczyzna';
                                 } else {
