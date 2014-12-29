@@ -69,7 +69,7 @@ class UsersController extends Controller {
 
         // </editor-fold>
 
-        include './Views/UsersListView.php';    //  Zwracanie widoku.
+        include _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Users'.DIRECTORY_SEPARATOR.'UsersListView.php';    //  Zwracanie widoku.
     }
 
     public function Update() {
@@ -87,7 +87,7 @@ class UsersController extends Controller {
         }
 
         $_SESSION['rez'] = $user;
-        include './Views/UsersEditView.php';
+        include _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Users'.DIRECTORY_SEPARATOR.'UsersEditView.php';
     }
 
 }

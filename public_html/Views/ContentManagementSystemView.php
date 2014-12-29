@@ -1,7 +1,7 @@
 <html>
-    <?php include 'ContentManagementSystemParts/Head.html'; ?>
+    <?php include 'ContentManagementSystemParts'.DIRECTORY_SEPARATOR.'Head.html'; ?>
     <body>
-        <?php include 'ContentManagementSystemParts/Label.php'; ?>
-        <?php include 'ContentManagementSystemParts/Options.php'; ?>
+        <?php include 'ContentManagementSystemParts'.DIRECTORY_SEPARATOR.'Label.php'; ?>
+        <?php include 'ContentManagementSystemParts'.DIRECTORY_SEPARATOR.'Options.php'; ?>
     </body>
 </html>

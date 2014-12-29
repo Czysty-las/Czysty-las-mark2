@@ -69,11 +69,11 @@ if ($_GET['page'] == 'CMS') {
             }
         } else {
             if (!isset($_GET['action'])) {
-                include './Views/ContentManagementSystemView.php';
+                include _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'ContentManagementSystemView.php';
             }
         }
     } else {
-        include './Views/LogInView.php';
+        include _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'LogInView.php';
     }
 } else {
     

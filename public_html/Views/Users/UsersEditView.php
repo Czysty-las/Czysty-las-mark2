@@ -1,7 +1,7 @@
 <html>
-    <?php include 'ContentManagementSystemParts/Head.html'; ?>
+    <?php include _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'ContentManagementSystemParts'.DIRECTORY_SEPARATOR.'Head.html'; ?>
     <body>
-        <?php include 'ContentManagementSystemParts/Label.php'; ?>
+        <?php include  _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'ContentManagementSystemParts'.DIRECTORY_SEPARATOR.'Label.php'; ?>
         <div class="usersModule">
             <form action="index.php" method="post">
                 <div class="formHolder">
