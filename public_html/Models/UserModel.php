@@ -30,7 +30,11 @@ class UserModel {
     public $Sex;
     public $Age;
     public $Mail;
-    
-    
+    public $Login;
+    public $Password;
+
+
+
+
     public $Rights = array();  // "1.1.1.1.0.2.2.3";
 }

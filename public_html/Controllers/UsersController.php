@@ -69,25 +69,38 @@ class UsersController extends Controller {
 
         // </editor-fold>
 
-        include _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Users'.DIRECTORY_SEPARATOR.'UsersListView.php';    //  Zwracanie widoku.
+        include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'Users' . DIRECTORY_SEPARATOR . 'UsersListView.php';    //  Zwracanie widoku.
     }
 
     public function Update() {
-        $q = "SELECT `Name`, `Surname`, `Age`, `Sex`, `Login`, `Password`, `Rights` FROM `users` WHERE `ID` = " . $_GET['user'];
+        if (isset($_POST['function']) && $_POST['function'] == 'edit') {
+            
+            $Password = $_POST['Password'];
+            $Rights = $_POST['userLvL'] . '.' . $_POST['news'] . '.' . $_POST['calendar'] . '.' . $_POST['gallery'] . '.' . $_POST['InForest'] . '.' . $_POST['UpCycling'] . '.' . $_POST['users'] . '.' . $_POST['tasks'] . '.' . $_POST['config'] . '.';
 
-        $stmt = DataBaseService::Query(0, $q);
+            $q = "UPDATE `users` SET `Name` = '".$_POST['Name']."', `Surname` = '".$_POST['Surname']."', `Age` = '".$_POST['Age']."', `Sex` = '".$_POST['Sex']."', `Login` = '".$_POST['Login']."', `Password` = '$Password', `Rights` = '$Rights' WHERE `users`.`ID` = " . $_POST['ID'];
+            DataBaseService::Query(0, $q);
+            
+            header("Location: index.php?function=users");
+        } else {
+            $q = "SELECT `Name`, `Surname`, `Age`, `Sex`, `Login`, `Password`, `Rights` FROM `users` WHERE `ID` = " . $_GET['user'];
 
-        $user = new UserModel();
-        foreach ($stmt as $row) {
-            $user->Name = $row['Name'];
-            $user->Surname = $row['Surname'];
-            $user->Age = $row['Age'];
-            $user->Sex = $row['Sex'];
-            $user->Rights = UserService::GetRights($row['Rights']);
+            $stmt = DataBaseService::Query(0, $q);
+
+            $user = new UserModel();
+            foreach ($stmt as $row) {
+                $user->Id = $_GET['user'];
+                $user->Name = $row['Name'];
+                $user->Surname = $row['Surname'];
+                $user->Age = $row['Age'];
+                $user->Sex = $row['Sex'];
+                $user->Login = $row['Login'];
+                $user->Rights = UserService::GetRights($row['Rights']);
+            }
+
+            $_SESSION['rez'] = $user;
+            include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'Users' . DIRECTORY_SEPARATOR . 'UsersEditView.php';
         }
-
-        $_SESSION['rez'] = $user;
-        include _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'Users'.DIRECTORY_SEPARATOR.'UsersEditView.php';
     }
 
 }
