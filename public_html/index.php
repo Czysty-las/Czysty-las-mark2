@@ -48,25 +48,39 @@ if ($_GET['page'] == 'CMS') {
     if (isset($_SESSION['User'])) {
         // <editor-fold desc="Akcje">
         // <editor-fold desc="CRUD urzytkownika" defaultstate="collapsed">
-        if (isset($_GET['action']) && $_GET['user']) {
+        //  Wywołanie widoku
+        if (isset($_GET['action'])) {
             switch ($_GET['action']) {
                 case "delete":
-                    $_SESSION['usersC']->Delete();
+                    if (isset($_GET['user'])) {
+                        $_SESSION['usersC']->Delete();
+                    }
                     break;
                 case "edit":
-                    $_SESSION['usersC']->Update();
+                    if (isset($_GET['user'])) {
+
+                        $_SESSION['usersC']->Update();
+                    }
+                    break;
+                case "add":
+                    $_SESSION['usersC']->Create();
                     break;
             }
         }
-        // </editor-fold>
-        // <editor-fold>
+        //  Wywołanie akcji.
         if (isset($_POST['function'])) {
             switch ($_POST['function']) {
                 case 'edit';
                     $_SESSION['usersC']->Update();
                     break;
+                case "add":
+                    $_SESSION['usersC']->Create();
+                    break;
             }
         }
+        // </editor-fold>
+        // <editor-fold>
+
         if (isset($_GET['function'])) {
             switch ($_GET['function']) {
                 case 'users';

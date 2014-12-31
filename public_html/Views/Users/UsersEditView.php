@@ -119,7 +119,7 @@
                     </tr>
                 </table>
                 <div class="buttonHolder">
-                    <button class="formButton" type="submit" name="function" value="edit">Zapisz</button>
+                    <button class="formButton" type="submit" name="function" value="<?php echo $_GET['action']; ?>">Zapisz</button>
                     <a class="formButton" href="index.php?function=users">Wróć</a>
                 </div>
             </form>

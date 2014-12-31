@@ -1,7 +1,7 @@
 <html>
-    <?php include _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'ContentManagementSystemParts'.DIRECTORY_SEPARATOR.'Head.html'; ?>
+    <?php include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'ContentManagementSystemParts' . DIRECTORY_SEPARATOR . 'Head.html'; ?>
     <body>
-        <?php include  _ROOT_PATH.DIRECTORY_SEPARATOR.'Views'.DIRECTORY_SEPARATOR.'ContentManagementSystemParts'.DIRECTORY_SEPARATOR.'Label.php'; ?>
+        <?php include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'ContentManagementSystemParts' . DIRECTORY_SEPARATOR . 'Label.php'; ?>
         <div class="usersModule">
             <form action="index.php" method="post">
                 <table>
@@ -36,9 +36,14 @@
                     }
                     ?>
                     <tr>
-                        <td><a href="index.php?function=users<?php if (!$all) {
-                        echo "&select=all";
-                    } ?>">Zaznacz wszystkie</a></td><td colspan="4"><button>Edytuj</button><button>Usuń</button><button>Zablokuj</button></td>
+                        <td colspan="5"><a href="index.php?action=add">Dodaj</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="index.php?function=users<?php
+                            if (!$all) {
+                                echo "&select=all";
+                            }
+                            ?>">Zaznacz wszystkie</a></td><td colspan="4"><button>Edytuj</button><button>Usuń</button><button>Zablokuj</button></td>
                     </tr>
                 </table>
             </form>

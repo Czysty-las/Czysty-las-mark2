@@ -13,7 +13,19 @@ class UsersController extends Controller {
     private $order;
 
     public function Create() {
-        
+        if (isset($_POST['function']) && $_POST['function'] == "add") {
+            $Rights = $_POST['userLvL'] . '.' . $_POST['news'] . '.' . $_POST['calendar'] . '.' . $_POST['gallery'] . '.' . $_POST['InForest'] . '.' . $_POST['UpCycling'] . '.' . $_POST['users'] . '.' . $_POST['tasks'] . '.' . $_POST['config'] . '.';
+
+            $q = "INSERT INTO `users` (`ID`, `Name`, `Surname`, `Age`, `Sex`, `Login`, `Password`, `Rights`)"
+                    . " VALUES (NULL, '" . $_POST['Name'] . "', '" . $_POST['Surname'] . "', '" . $_POST['Age'] . "', '" . $_POST['Sex'] . "', '" . $_POST['Login'] . "', 'gggwww', '$Rights')";
+
+            DataBaseService::Query(0, $q);
+            header("Location: index.php?function=users");
+        } else {
+            $_SESSION['rez'] = new UserModel;
+            $_SESSION['rez']->Rights = UserService::GetRights("0.0.0.0.0.0.0.0.0.0");
+            include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'Users' . DIRECTORY_SEPARATOR . 'UsersEditView.php';
+        }
     }
 
     public function Delete() {
@@ -74,13 +86,13 @@ class UsersController extends Controller {
 
     public function Update() {
         if (isset($_POST['function']) && $_POST['function'] == 'edit') {
-            
+
             $Password = $_POST['Password'];
             $Rights = $_POST['userLvL'] . '.' . $_POST['news'] . '.' . $_POST['calendar'] . '.' . $_POST['gallery'] . '.' . $_POST['InForest'] . '.' . $_POST['UpCycling'] . '.' . $_POST['users'] . '.' . $_POST['tasks'] . '.' . $_POST['config'] . '.';
 
-            $q = "UPDATE `users` SET `Name` = '".$_POST['Name']."', `Surname` = '".$_POST['Surname']."', `Age` = '".$_POST['Age']."', `Sex` = '".$_POST['Sex']."', `Login` = '".$_POST['Login']."', `Password` = '$Password', `Rights` = '$Rights' WHERE `users`.`ID` = " . $_POST['ID'];
+            $q = "UPDATE `users` SET `Name` = '" . $_POST['Name'] . "', `Surname` = '" . $_POST['Surname'] . "', `Age` = '" . $_POST['Age'] . "', `Sex` = '" . $_POST['Sex'] . "', `Login` = '" . $_POST['Login'] . "', `Password` = '$Password', `Rights` = '$Rights' WHERE `users`.`ID` = " . $_POST['ID'];
             DataBaseService::Query(0, $q);
-            
+
             header("Location: index.php?function=users");
         } else {
             $q = "SELECT `Name`, `Surname`, `Age`, `Sex`, `Login`, `Password`, `Rights` FROM `users` WHERE `ID` = " . $_GET['user'];
