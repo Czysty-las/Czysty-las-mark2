@@ -13,11 +13,13 @@ class UsersController extends Controller {
     private $order;
 
     public function Create() {
-        if (isset($_POST['function']) && $_POST['function'] == "add") {
-            $Rights = $_POST['userLvL'] . '.' . $_POST['news'] . '.' . $_POST['calendar'] . '.' . $_POST['gallery'] . '.' . $_POST['InForest'] . '.' . $_POST['UpCycling'] . '.' . $_POST['users'] . '.' . $_POST['tasks'] . '.' . $_POST['config'] . '.';
+        if (isset($_POST['function']) && $_POST['function'] == "edit_user") {
+            $Rights = $_POST['userLvL'] . '.' . $_POST['news'] . '.' . $_POST['calendar'] . '.' . $_POST['gallery'] . '.' . $_POST['InForest'] . '.' 
+                    . $_POST['UpCycling'] . '.' . $_POST['users'] . '.' . $_POST['tasks'] . '.' . $_POST['config'] . '.';
 
             $q = "INSERT INTO `users` (`ID`, `Name`, `Surname`, `Age`, `Sex`, `Login`, `Password`, `Rights`)"
-                    . " VALUES (NULL, '" . $_POST['Name'] . "', '" . $_POST['Surname'] . "', '" . $_POST['Age'] . "', '" . $_POST['Sex'] . "', '" . $_POST['Login'] . "', 'gggwww', '$Rights')";
+                    . " VALUES (NULL, '" . $_POST['Name'] . "', '" . $_POST['Surname'] . "', '" . $_POST['Age'] . "', '" . $_POST['Sex'] . "', '" 
+                    . $_POST['Login'] . "', 'gggwww', '$Rights')";
 
             DataBaseService::Query(0, $q);
             header("Location: index.php?function=users");
@@ -85,7 +87,7 @@ class UsersController extends Controller {
     }
 
     public function Update() {
-        if (isset($_POST['function']) && $_POST['function'] == 'edit') {
+        if (isset($_POST['function']) && $_POST['function'] == 'edit_user') {
 
             $Password = $_POST['Password'];
             $Rights = $_POST['userLvL'] . '.' . $_POST['news'] . '.' . $_POST['calendar'] . '.' . $_POST['gallery'] . '.' . $_POST['InForest'] . '.' . $_POST['UpCycling'] . '.' . $_POST['users'] . '.' . $_POST['tasks'] . '.' . $_POST['config'] . '.';

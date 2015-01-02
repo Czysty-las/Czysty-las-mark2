@@ -46,41 +46,44 @@ if ($_GET['page'] == 'CMS') {
 // </editor-fold>
 
     if (isset($_SESSION['User'])) {
-        // <editor-fold desc="Akcje">
+        // <editor-fold desc="Akcje" defaultstate="collapsed">
         // <editor-fold desc="CRUD urzytkownika" defaultstate="collapsed">
-        //  Wywołanie widoku
+         
+        //  Wywołanie widoku dodawanbia/edytowania
+        //  Wywołanie zapytania usuwania.
         if (isset($_GET['action'])) {
             switch ($_GET['action']) {
-                case "delete":
+                case "delete_user": 
+                    //  Usuwanie wymaga tylko jednej zmiennej, ID rekordu, który ma zostać usunięty.
+                    //  Generowany jest linkt, który ma tą zmienną. - W widoku.
                     if (isset($_GET['user'])) {
                         $_SESSION['usersC']->Delete();
                     }
                     break;
-                case "edit":
+                case "edit_user":
                     if (isset($_GET['user'])) {
-
                         $_SESSION['usersC']->Update();
                     }
                     break;
-                case "add":
+                case "add_user":
                     $_SESSION['usersC']->Create();
                     break;
             }
         }
-        //  Wywołanie akcji.
+        
+        // Wywołanie zapytania dodawania/edytowania.
+        // Post = formularz
         if (isset($_POST['function'])) {
             switch ($_POST['function']) {
-                case 'edit';
+                case 'edit_user';
                     $_SESSION['usersC']->Update();
                     break;
-                case "add":
+                case "add_user":
                     $_SESSION['usersC']->Create();
                     break;
             }
         }
-        // </editor-fold>
-        // <editor-fold>
-
+        //  Widok listy.
         if (isset($_GET['function'])) {
             switch ($_GET['function']) {
                 case 'users';
@@ -95,6 +98,8 @@ if ($_GET['page'] == 'CMS') {
     } else {
         include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'LogInView.php';
     }
+    // </editor-fold>
+    // <editor-fold>
 } else {
     
 }
