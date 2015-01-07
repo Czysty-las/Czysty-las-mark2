@@ -28,7 +28,7 @@ class LogService {
     }
 
     public static function warning($_contents) {
-        
+        self::log("Warning", 'warning.log', $_source, $_message);
     }
 
     public static function error($_source, $_message) {
