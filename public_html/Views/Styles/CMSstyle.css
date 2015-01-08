@@ -499,6 +499,35 @@ a:hover
 
 /*<editor-fold desc="Newsy" defaultstate="collapsed">*/
 
+.newsModule
+{
+    width: 80%;
+    height: 85%;
+    background-color: #70a031;
+
+    margin: 0px auto;
+}
+
+@media screen and (max-height: 790px )
+{
+    .newsModule
+    {
+        height: 660px;
+    }
+}
+
+.newsList
+{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.3);   
+}
+
+.newsItem
+{
+    
+}
 
 
 /*</editor-fold>*/

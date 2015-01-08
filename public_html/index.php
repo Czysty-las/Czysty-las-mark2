@@ -47,14 +47,12 @@ if ($_GET['page'] == 'CMS') {
     }
 
 // </editor-fold>
-
     if (isset($_SESSION['User'])) {
-        // <editor-fold desc="Akcje" defaultstate="collapsed">
         //  Wywołanie widoku dodawanbia/edytowania
         //  Wywołanie zapytania usuwania.
         if (isset($_GET['action'])) {
             switch ($_GET['action']) {
-                
+
                 // <editor-fold desc="Akcje urzytkownika" defaultstate="collapsed">
                 case 'list_users';
                     $_SESSION['usersC']->Read();
@@ -75,7 +73,6 @@ if ($_GET['page'] == 'CMS') {
                     $_SESSION['usersC']->Create();
                     break;
                 // </editor-fold>
-                
                 // <editor-fold desc="Akcje Newsów" defaultstate="collapsed">
                 case 'list_news';
                     $_SESSION['newsC']->Read();
@@ -124,7 +121,6 @@ if ($_GET['page'] == 'CMS') {
     } else {
         include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'LogInView.php';
     }
-    // </editor-fold>
 } else {
     
 }
