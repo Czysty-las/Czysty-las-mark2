@@ -47,13 +47,16 @@ if ($_GET['page'] == 'CMS') {
 
     if (isset($_SESSION['User'])) {
         // <editor-fold desc="Akcje" defaultstate="collapsed">
-        // <editor-fold desc="CRUD urzytkownika" defaultstate="collapsed">
-         
         //  Wywołanie widoku dodawanbia/edytowania
         //  Wywołanie zapytania usuwania.
         if (isset($_GET['action'])) {
             switch ($_GET['action']) {
-                case "delete_user": 
+                
+                // <editor-fold desc="Akcje urzytkownika" defaultstate="collapsed">
+                case 'users_list';
+                    $_SESSION['usersC']->Read();
+                    break;
+                case "delete_user":
                     //  Usuwanie wymaga tylko jednej zmiennej, ID rekordu, który ma zostać usunięty.
                     //  Generowany jest linkt, który ma tą zmienną. - W widoku.
                     if (isset($_GET['user'])) {
@@ -68,9 +71,10 @@ if ($_GET['page'] == 'CMS') {
                 case "add_user":
                     $_SESSION['usersC']->Create();
                     break;
+                // </editor-fold>
             }
         }
-        
+
         // Wywołanie zapytania dodawania/edytowania.
         // Post = formularz
         if (isset($_POST['function'])) {
@@ -86,9 +90,7 @@ if ($_GET['page'] == 'CMS') {
         //  Widok listy.
         if (isset($_GET['function'])) {
             switch ($_GET['function']) {
-                case 'users';
-                    $_SESSION['usersC']->Read();
-                    break;
+                
             }
         } else {
             if (!isset($_GET['action'])) {
@@ -99,7 +101,6 @@ if ($_GET['page'] == 'CMS') {
         include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'LogInView.php';
     }
     // </editor-fold>
-    // <editor-fold>
 } else {
     
 }
