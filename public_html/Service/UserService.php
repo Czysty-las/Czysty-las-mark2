@@ -5,7 +5,7 @@
  *
  * @author Lukasz
  */
-include '.' . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'UserModel.php';
+//include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'UserModel.php';
 
 class UserService {
 
