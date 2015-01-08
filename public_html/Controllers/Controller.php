@@ -13,6 +13,8 @@
  */
 abstract class Controller {
 
+    protected $viewsPath; 
+
     /*
      * Funkcja dodająca nowy wpis do bazy danych.
      */

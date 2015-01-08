@@ -23,6 +23,9 @@ if (!isset($_GET['page'])) {
 if (!isset($_SESSION['usersC'])) {
     $_SESSION['usersC'] = new UsersController;
 }
+if (!isset($_SESSION['newsC'])) {
+    $_SESSION['newsC'] = new NewsController;
+}
 
 if ($_GET['page'] == 'CMS') {
     // <editor-fold desc="Akcje logowanie i wylogowania." defaultstate="collapsed">
@@ -53,7 +56,7 @@ if ($_GET['page'] == 'CMS') {
             switch ($_GET['action']) {
                 
                 // <editor-fold desc="Akcje urzytkownika" defaultstate="collapsed">
-                case 'users_list';
+                case 'list_users';
                     $_SESSION['usersC']->Read();
                     break;
                 case "delete_user":
@@ -70,6 +73,27 @@ if ($_GET['page'] == 'CMS') {
                     break;
                 case "add_user":
                     $_SESSION['usersC']->Create();
+                    break;
+                // </editor-fold>
+                
+                // <editor-fold desc="Akcje Newsów" defaultstate="collapsed">
+                case 'list_news';
+                    $_SESSION['newsC']->Read();
+                    break;
+                case "delete_news":
+                    //  Usuwanie wymaga tylko jednej zmiennej, ID rekordu, który ma zostać usunięty.
+                    //  Generowany jest linkt, który ma tą zmienną. - W widoku.
+                    if (isset($_GET['news'])) {
+                        $_SESSION['newsC']->Delete();
+                    }
+                    break;
+                case "edit_news":
+                    if (isset($_GET['news'])) {
+                        $_SESSION['newsC']->Update();
+                    }
+                    break;
+                case "add_news":
+                    $_SESSION['newsC']->Create();
                     break;
                 // </editor-fold>
             }

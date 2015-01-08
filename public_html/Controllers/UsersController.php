@@ -5,7 +5,7 @@
  *
  * @author Lukasz
  */
-include 'Controller.php';
+include_once  'Controller.php';
 
 class UsersController extends Controller {
 
