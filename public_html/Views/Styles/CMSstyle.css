@@ -526,9 +526,77 @@ a:hover
 
 .newsItem
 {
-    
+    width: 99%;
+    height: 50px;
+    overflow: hidden;
+
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
+.newsItem:hover
+{
+    overflow: visible;
+    height: auto;
+}
+
+/*<editor-fold desc="Belka tytułowa" defaultstate="collapsed">*/
+
+.newsItem .titleBar
+{
+    width: 100%;
+    height: 50px;
+
+    line-height: 50px;
+}
+
+.newsItem .titleBar .title
+{
+    width: 80%;
+    padding: 0;
+    height: 100%;
+    float: left;
+
+    text-align: center;
+}
+
+.newsItem .author, .date
+{
+    width: 10%;
+    height: 100%;
+    float: left;
+
+    text-align: center;
+}
+/*</editor-fold>*/
+
+.newsItem .content
+{
+    width: 100%;
+}
+
+/*<editor-fold desc="Belka edycyjna" defaultstate="collapsed">*/
+
+.newsItem .editBar
+{
+    width: 100%;
+    height: 50px;
+    padding: 10px 0px;
+
+    line-height: 50px;
+}
+
+.newsItem .editBar a
+{
+    width: 50%;
+    height: 100%;
+    display: block;
+    border: none;
+    float: left;
+
+    text-align: center;
+}
+
+/*</editor-fold>*/
 
 /*</editor-fold>*/
 
