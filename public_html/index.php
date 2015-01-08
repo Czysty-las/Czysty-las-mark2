@@ -53,9 +53,7 @@ if ($_GET['page'] == 'CMS') {
     }
 
 // </editor-fold>
-
     if (isset($_SESSION['User'])) {
-        // <editor-fold desc="Akcje" defaultstate="collapsed">
         //  Wywołanie widoku dodawanbia/edytowania
         //  Wywołanie zapytania usuwania.
         if (isset($_GET['action'])) {
@@ -64,8 +62,7 @@ if ($_GET['page'] == 'CMS') {
                 case 'list_calendar';
                     $_SESSION['calendarC']->Read();
                     break;
-                case "delete_calendar":
-                    
+                case "delete_calendar":                    
                     if (isset($_GET['calendar'])) {
                         $_SESSION['calendarC']->Delete();
                     }
@@ -147,7 +144,6 @@ if ($_GET['page'] == 'CMS') {
     } else {
         include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'LogInView.php';
     }
-    // </editor-fold>
 } else {
     
 }
