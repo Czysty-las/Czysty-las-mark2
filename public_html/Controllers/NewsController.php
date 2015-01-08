@@ -16,7 +16,6 @@ include_once 'Controller.php';
 class NewsController extends Controller {
 
     function __construct() {
-
         $this->viewsPath = _ROOT_PATH
                 . DIRECTORY_SEPARATOR
                 . "Views"

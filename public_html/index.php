@@ -20,11 +20,17 @@ DataBaseService::Connect(ALL);
 if (!isset($_GET['page'])) {
     $_GET['page'] = 'CMS';
 }
+
 if (!isset($_SESSION['usersC'])) {
     $_SESSION['usersC'] = new UsersController;
 }
+
 if (!isset($_SESSION['newsC'])) {
     $_SESSION['newsC'] = new NewsController;
+}
+
+if (!isset($_SESSION['calendarC'])) {
+    $_SESSION['calendarC'] = new CalendarController;
 }
 
 if ($_GET['page'] == 'CMS') {
@@ -54,7 +60,25 @@ if ($_GET['page'] == 'CMS') {
         //  Wywołanie zapytania usuwania.
         if (isset($_GET['action'])) {
             switch ($_GET['action']) {
-                
+                // <editor-fold desc="Akcje kalendarza" defaultstate="collapsed">
+                case 'list_calendar';
+                    $_SESSION['calendarC']->Read();
+                    break;
+                case "delete_calendar":
+                    
+                    if (isset($_GET['calendar'])) {
+                        $_SESSION['calendarC']->Delete();
+                    }
+                    break;
+                case "edit_calendar":
+                    if (isset($_GET['calendar'])) {
+                        $_SESSION['calendarC']->Update();
+                    }
+                    break;
+                case "add_calendar":
+                    $_SESSION['calendarC']->Create();
+                    break;
+                // </editor-fold>
                 // <editor-fold desc="Akcje urzytkownika" defaultstate="collapsed">
                 case 'list_users';
                     $_SESSION['usersC']->Read();
@@ -75,7 +99,6 @@ if ($_GET['page'] == 'CMS') {
                     $_SESSION['usersC']->Create();
                     break;
                 // </editor-fold>
-                
                 // <editor-fold desc="Akcje Newsów" defaultstate="collapsed">
                 case 'list_news';
                     $_SESSION['newsC']->Read();
