@@ -15,7 +15,7 @@
     ?>
     
     <?php if ($_SESSION['news']) { ?><a class="option" id="news" href="index.php?action=list_news"/></a><?php } ?>
-    <?php if ($_SESSION['calendar']) { ?><a class="option" id="calendar" href="index.php?action=calendar_list"/></a><?php } ?>
+    <?php if ($_SESSION['calendar']) { ?><a class="option" id="calendar" href="index.php?action=list_calendar"/></a><?php } ?>
     <?php if ($_SESSION['gallery']) { ?><a class="option" id="gallery" href="index.php?action=gallery"></a><?php } ?>
     <?php if ($_SESSION['InForest']) { ?><a class="option" id="InForest" href="index.php?action=inforest"></a><?php } ?>
     <?php if ($_SESSION['UpCycling']) { ?><a class="option" id="UpCycling" href="index.php?action=upcycling"></a><?php } ?>
