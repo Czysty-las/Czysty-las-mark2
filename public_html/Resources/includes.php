@@ -7,7 +7,7 @@
 
 include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'UserModel.php';
 include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'CalendarModel.php';
-
+include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'NewsModel.php';
 // </editor-fold>
 
 // <editor-fold desc="Serwisy" defaultstate="collapsed">

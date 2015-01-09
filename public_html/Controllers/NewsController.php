@@ -31,6 +31,31 @@ class NewsController extends Controller {
     }
 
     public function Read() {
+        $q = "SELECT news.*, users.Name, users.Surname "
+                . "FROM news "
+                . "LEFT OUTER JOIN users "
+                . "ON news.authorID = users.ID";
+        
+        $stmt = DataBaseService::Query(0, $q);
+
+        $news = array();
+        $i = 0;
+
+        foreach ($stmt as $row) {
+            $news[$i] = new NewsModel();
+
+            $news[$i]->ID = $row['ID'];
+            $news[$i]->authorName = $row['Name'];
+            $news[$i]->authorSurname  = $row['Surname'];
+            $news[$i]->title = $row['title'];
+            $news[$i]->content = $row['content'];
+            $news[$i]->date = $row['date'];
+            
+            ++$i;
+        }
+        
+        $_SESSION['rez'] = $news;
+        
         include $this->viewsPath . "NewsListView.php";
     }
 

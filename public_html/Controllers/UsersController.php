@@ -5,28 +5,36 @@
  *
  * @author Lukasz
  */
-include_once  'Controller.php';
+include_once 'Controller.php';
 
 class UsersController extends Controller {
 
     private $changeSort = true;
     private $order;
 
+    function __construct() {
+        $this->viewsPath = _ROOT_PATH
+                . DIRECTORY_SEPARATOR
+                . "Views"
+                . DIRECTORY_SEPARATOR . "Users" . DIRECTORY_SEPARATOR;
+    }
+
     public function Create() {
-        if (isset($_POST['function']) && $_POST['function'] == "edit_user") {
-            $Rights = $_POST['userLvL'] . '.' . $_POST['news'] . '.' . $_POST['calendar'] . '.' . $_POST['gallery'] . '.' . $_POST['InForest'] . '.' 
+        if (isset($_POST['function']) && $_POST['function'] == "add_user") {
+            $Rights = $_POST['userLvL'] . '.' . $_POST['news'] . '.' . $_POST['calendar'] . '.' . $_POST['gallery'] . '.' . $_POST['InForest'] . '.'
                     . $_POST['UpCycling'] . '.' . $_POST['users'] . '.' . $_POST['tasks'] . '.' . $_POST['config'] . '.';
 
             $q = "INSERT INTO `users` (`ID`, `Name`, `Surname`, `Age`, `Sex`, `Login`, `Password`, `Rights`)"
-                    . " VALUES (NULL, '" . $_POST['Name'] . "', '" . $_POST['Surname'] . "', '" . $_POST['Age'] . "', '" . $_POST['Sex'] . "', '" 
+                    . " VALUES (NULL, '" . $_POST['Name'] . "', '" . $_POST['Surname'] . "', '" . $_POST['Age'] . "', '" . $_POST['Sex'] . "', '"
                     . $_POST['Login'] . "', 'gggwww', '$Rights')";
 
             DataBaseService::Query(0, $q);
-            header("Location: index.php?function=users");
+            header("Location: index.php?action=list_users");
         } else {
+            $_GET['mode'] = "add_user";
             $_SESSION['rez'] = new UserModel;
             $_SESSION['rez']->Rights = UserService::GetRights("0.0.0.0.0.0.0.0.0.0");
-            include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'Users' . DIRECTORY_SEPARATOR . 'UsersEditView.php';
+            include $this->viewsPath . 'UsersEditView.php';
         }
     }
 
@@ -39,7 +47,7 @@ class UsersController extends Controller {
             LogService::message(UsersController, "User deleted!");
         }
 
-        header("Location: index.php?function=users");
+        header("Location: index.php?action=list_users");
     }
 
     public function Read() {
@@ -83,7 +91,7 @@ class UsersController extends Controller {
 
         // </editor-fold>
 
-        include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'Users' . DIRECTORY_SEPARATOR . 'UsersListView.php';    //  Zwracanie widoku.
+        include $this->viewsPath . 'UsersListView.php';    //  Zwracanie widoku.
     }
 
     public function Update() {
@@ -95,7 +103,7 @@ class UsersController extends Controller {
             $q = "UPDATE `users` SET `Name` = '" . $_POST['Name'] . "', `Surname` = '" . $_POST['Surname'] . "', `Age` = '" . $_POST['Age'] . "', `Sex` = '" . $_POST['Sex'] . "', `Login` = '" . $_POST['Login'] . "', `Password` = '$Password', `Rights` = '$Rights' WHERE `users`.`ID` = " . $_POST['ID'];
             DataBaseService::Query(0, $q);
 
-            header("Location: index.php?function=users");
+            header("Location: index.php?action=list_users");
         } else {
             $q = "SELECT `Name`, `Surname`, `Age`, `Sex`, `Login`, `Password`, `Rights` FROM `users` WHERE `ID` = " . $_GET['user'];
 
@@ -111,9 +119,9 @@ class UsersController extends Controller {
                 $user->Login = $row['Login'];
                 $user->Rights = UserService::GetRights($row['Rights']);
             }
-
+            $_GET['mode'] = "edit_user";
             $_SESSION['rez'] = $user;
-            include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'Users' . DIRECTORY_SEPARATOR . 'UsersEditView.php';
+            include $this->viewsPath . 'UsersEditView.php';
         }
     }
 
