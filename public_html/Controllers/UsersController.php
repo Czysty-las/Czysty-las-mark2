@@ -44,7 +44,7 @@ class UsersController extends Controller {
         $stmt = DataBaseService::Query(0, $q);
 
         if ($stmt != NULL) {
-            LogService::message(UsersController, "User deleted!");
+            LogService::message("UsersController", "User deleted!");
         }
 
         header("Location: index.php?action=list_users");

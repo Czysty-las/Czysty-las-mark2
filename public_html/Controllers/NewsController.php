@@ -27,7 +27,14 @@ class NewsController extends Controller {
     }
 
     public function Delete() {
+        $q = "DELETE FROM `devdb`.`news` WHERE `news`.`ID` = " . $_GET['news'];
+        DataBaseService::Query(0, $q);
         
+        if ($stmt != NULL) {
+            LogService::message("UsersController", "News deleted!");
+        }
+
+        header("Location: index.php?action=list_news");
     }
 
     public function Read() {
@@ -35,7 +42,7 @@ class NewsController extends Controller {
                 . "FROM news "
                 . "LEFT OUTER JOIN users "
                 . "ON news.authorID = users.ID";
-        
+
         $stmt = DataBaseService::Query(0, $q);
 
         $news = array();
@@ -46,16 +53,16 @@ class NewsController extends Controller {
 
             $news[$i]->ID = $row['ID'];
             $news[$i]->authorName = $row['Name'];
-            $news[$i]->authorSurname  = $row['Surname'];
+            $news[$i]->authorSurname = $row['Surname'];
             $news[$i]->title = $row['title'];
             $news[$i]->content = $row['content'];
             $news[$i]->date = $row['date'];
-            
+
             ++$i;
         }
-        
+
         $_SESSION['rez'] = $news;
-        
+
         include $this->viewsPath . "NewsListView.php";
     }
 

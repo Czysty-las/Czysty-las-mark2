@@ -17,7 +17,7 @@
 
                         <div class="editBar">
                             <a href="index.php?action=edit_news&news=<?php echo $news->ID; ?>">Edytuj</a>
-                            <a href="index.php?action=deleate_news&news=<?php echo $news->ID; ?>">Usuń</a>
+                            <a href="index.php?action=delete_news&news=<?php echo $news->ID; ?>">Usuń</a>
                         </div>
                     </div>
                 <?php } ?>
