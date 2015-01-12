@@ -620,6 +620,11 @@ a:hover
     }
 }
 
-
+.calendarModule table
+{
+    margin: 0 auto;
+    width: 90%;
+//    display: block;
+}
 
 /*</editor-fold>*/
