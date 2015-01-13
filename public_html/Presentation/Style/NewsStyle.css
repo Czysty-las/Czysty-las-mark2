@@ -26,7 +26,57 @@ p
     width: 600px;
     min-height: 700px;
     margin: 100px 276px 100px;
- //   overflow-y: scroll;
     float: none;
-//    position: absolute;
+}
+
+.content a
+{
+    color: #bccb89;
+    text-decoration: none;
+}
+
+.content a:hover
+{
+    text-decoration: underline;
+}
+.news
+{
+    text-align: justify;
+}
+
+.newsPagesHolder
+{
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.newsPagesHolder a
+{
+    height: 50px;
+    display: block;
+    float: left;
+    line-height: 50px;
+    margin: 0 2px 0 2px;
+
+    color: #bccb89;
+}
+
+.newsPagesNavButton
+{
+    width: 10%;
+    height: 50px;
+    float: left;
+}
+
+.newsPagesNavButton a
+{
+    
+}
+
+.newsPagesButton
+{
+    width: 80%;
+    height: 50px;
+    float: left;
 }

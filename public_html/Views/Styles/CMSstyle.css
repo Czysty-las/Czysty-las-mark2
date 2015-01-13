@@ -424,6 +424,7 @@ a:hover
 .usersModule td a
 {
     margin: 0 5px;
+    display: inline-block;
 }
 
 .usersModule table button
@@ -521,7 +522,8 @@ a:hover
     width: 80%;
     height: 100%;
     margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.3);   
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow-y: scroll;
 }
 
 .newsList a
