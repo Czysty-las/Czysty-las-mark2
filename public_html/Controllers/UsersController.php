@@ -119,8 +119,10 @@ class UsersController extends Controller {
                 $user->Login = $row['Login'];
                 $user->Rights = UserService::GetRights($row['Rights']);
             }
+            
             $_GET['mode'] = "edit_user";
             $_SESSION['rez'] = $user;
+            
             include $this->viewsPath . 'UsersEditView.php';
         }
     }

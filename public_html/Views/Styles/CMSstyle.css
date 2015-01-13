@@ -599,6 +599,22 @@ a:hover
 
 /*</editor-fold>*/
 
+.newsTitleInput
+{
+    width: 80%;
+    margin: 0 auto;
+    
+    display: block;
+}
+
+.newsContentInput
+{
+    width: 80%;
+    height: 80%;
+    margin: 10px auto;
+    
+    display: block;
+}
 /*</editor-fold>*/
 
 /*<editor-fold desc="Calendar" defaultstate="collapsed">*/
