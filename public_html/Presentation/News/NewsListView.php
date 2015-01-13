@@ -9,24 +9,35 @@
         <?php include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Presentation' . DIRECTORY_SEPARATOR . 'PageParts' . DIRECTORY_SEPARATOR . 'pageNav.html';              // Nawigacja serwisu?>
         <?php include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Presentation' . DIRECTORY_SEPARATOR . 'PageParts' . DIRECTORY_SEPARATOR . 'socialNetworkNav.html';     // Nawigacja sieci społecznościwych.?>
         <div class="content">
+
             <?php
             for ($j = 0; $j < 10; ++$j) {
                 if (isset($_SESSION['rez'][$page][$j])) {
                     ?>
 
-                    <p class="title"><?php echo $_SESSION['rez'][$page][$j]->title; ?></p>
-                    <?php if (strlen($_SESSION['rez'][$page][$j]->content) > 500) { ?>
-                        <p class="news"><?php echo substr($_SESSION['rez'][$page][$j]->content, 0, 500); ?><p>
-                            <a href="index.php?action=News&id=<?php echo $_SESSION['rez'][$page][$j]->ID; ?>">Czytaj wiecej...</a>   
-                        <?php } else { ?>
-                        <p class="news"><?php echo $_SESSION['rez'][$page][$j]->content; ?></p><?php
-                    }
-                } else {
-                    break;
-                }
-            }
-            ?>
+                    <div class="newsItem">
+                        <div class="title">
+                            <?php echo $_SESSION['rez'][$page][$j]->title; ?>
+                        </div>
+                        <div class="newsContent">
+                            <?php
+                            if (strlen($_SESSION['rez'][$page][$j]->content) > 500) {
+                                echo substr($_SESSION['rez'][$page][$j]->content, 0, 500);
+                            } else {
+                                echo $_SESSION['rez'][$page][$j]->content;
+                            }
+                            ?>
+                        </div>
+                        <div class="newsReadMore">
+                            <a href="index.php?action=News&id=<?php echo $_SESSION['rez'][$page][$j]->ID; ?>">Czytaj wiecej...</a>
+                        </div>
+                        <div class="newsAuthor">
+                            <?php echo $_SESSION['rez'][$page][$j]->authorName . " " . $_SESSION['rez'][$page][$j]->authorSurname; ?>
+                        </div>
+                    </div>
 
+                <?php } ?>
+            <?php } ?>
             <div class="newsPagesHolder">
                 <div class="newsPagesNavButton">
                     <?php if ($page > 0) { ?>
