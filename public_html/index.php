@@ -9,7 +9,7 @@ include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . '
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case 'News':
-            include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Presentation' . DIRECTORY_SEPARATOR . "News.php";
+            $_SESSION['newsC']->Presentation();
             break;
     }
 } else {

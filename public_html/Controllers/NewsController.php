@@ -24,10 +24,10 @@ class NewsController extends Controller {
 
     public function Create() {
         if (isset($_POST['function']) && $_POST['function'] == 'add_news') {
-            $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '".$_POST['title']."', '" . $_POST['content'] . "', '2015-01-13');";
-  //          $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '" . $_POST['title'] . "', ' " . $_POST['content'] . "', '" . date("m.d.y") . "')";
+            $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '" . $_POST['title'] . "', '" . $_POST['content'] . "', '2015-01-13');";
+            //          $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '" . $_POST['title'] . "', ' " . $_POST['content'] . "', '" . date("m.d.y") . "')";
             DataBaseService::Query(0, $q);
-            
+
             header("Location: index.php?action=list_news");
         } else {
             $_SESSION['rez'] = new NewsModel();
@@ -105,7 +105,40 @@ class NewsController extends Controller {
     }
 
     public function Presentation() {
+        $q = "SELECT news.*, users.Name, users.Surname "
+                . "FROM news "
+                . "LEFT OUTER JOIN users "
+                . "ON news.authorID = users.ID";
+
+        $stmt = DataBaseService::Query(0, $q);
+
+        $pages = $posts = 0;
+
+        $page;
+        if (!isset($_GET['page'])) {
+            $page = 0;
+        }
+
         
+        foreach ($stmt as $row) {
+            $news[$pages][$posts] = new NewsModel();
+            $news[$pages][$posts]->ID = $row['ID'];
+            $news[$pages][$posts]->authorName = $row['Name'];
+            $news[$pages][$posts]->authorSurname = $row['Surname'];
+            $news[$pages][$posts]->title = $row['title'];
+            $news[$pages][$posts]->content = $row['content'];
+            $news[$pages][$posts]->date = $row['date'];
+            ++$posts;
+
+            if ($posts == 10) {
+                ++$pages;
+                $posts = 0;
+            }
+        }
+
+        $_SESSION['rez'] = $news;
+
+        include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Presentation' . DIRECTORY_SEPARATOR . "News.php";
     }
 
 //put your code here
