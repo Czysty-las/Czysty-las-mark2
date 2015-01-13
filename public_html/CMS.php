@@ -3,11 +3,10 @@
 define('_ROOT_PATH', dirname(__FILE__));
 include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'includes.php';
 
-session_start();
+
 // <editor-fold desc="Nawiązanie połączenia z bazą." defaultstate="collapsed">
 
-DataBaseService::Initialize();
-DataBaseService::Connect(ALL);
+include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'modulesInitialization.php';
 
 // </editor-fold >
 
@@ -17,17 +16,6 @@ DataBaseService::Connect(ALL);
 
 // <editor-fold desc="Rooting." defaultstate="collapsed">
 
-if (!isset($_SESSION['usersC'])) {
-    $_SESSION['usersC'] = new UsersController;
-}
-
-if (!isset($_SESSION['newsC'])) {
-    $_SESSION['newsC'] = new NewsController;
-}
-
-if (!isset($_SESSION['calendarC'])) {
-    $_SESSION['calendarC'] = new CalendarController;
-}
 
 // <editor-fold desc="Akcje logowanie i wylogowania." defaultstate="collapsed">
 
