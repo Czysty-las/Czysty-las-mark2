@@ -18,7 +18,16 @@ class CalendarController extends Controller {
 
     public function Delete() {
 
-        LogService::message("CalendarController", "Usunięto wpis z kalendarza");
+        $q = "DELETE FROM `calendar` WHERE `Id` = " . $_GET['calendar'];
+
+        $stmt = DataBaseService::Query(0, $q);
+
+        if ($stmt != NULL) {
+            LogService::message("CalendarController", "Usunięto wpis z kalendarza");
+        }
+
+        header("Location: index.php?action=list_calendar");
+        
     }
 
     public function Read() {
@@ -46,7 +55,24 @@ class CalendarController extends Controller {
     }
 
     public function Update() {
-
+        
+        
+        $q = "SELECT * FROM 'calendar' WHERE Id = " . $_GET['user'];
+        $stmt = DataBaseService::Query(0, $q);
+        
+        $wpis = array();
+        
+        foreach ($stmt as $row) {
+            $wpis[$i] = new CalendarModel();
+            
+            $wpis[$i]->Id = $row['Id'];
+            $wpis[$i]->UserId = $row['UserId'];
+            $wpis[$i]->Date = $row['Date'];
+            $wpis[$i]->Topic = $row['Topic'];
+            $wpis[$i]->Description = $row['Description'];
+        }
+        $_SESSION['rez'] = $wpis;
+        
         include $this->viewsPath . 'CalendarDiscriptionView.php';
         //LogService::message("CalendarController", "Edytowano wpis w kalendarzu");
     }
