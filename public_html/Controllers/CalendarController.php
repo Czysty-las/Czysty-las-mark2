@@ -30,7 +30,7 @@ class CalendarController extends Controller {
     }
 
     public function Read() {
-        $q = "SELECT * FROM `calendar`";
+        $q = "SELECT * FROM `calendar` ORDER BY Date";
         $stmt = DataBaseService::Query(0, $q);
 
         //$_GET['IdToDisplay'];
@@ -57,8 +57,10 @@ class CalendarController extends Controller {
 
         if (isset($_POST['function']) && $_POST['function'] == 'edit_calendar') {
             
-            
-            
+            $q = "UPDATE `calendar` SET `Topic` = '" . $_POST['Topic'] ."', `Description` = '" . $_POST['Description'] . "', `Date` = '" . $_POST['Date'] . " WHERE `ID` = " . $_POST['Id'];
+            DataBaseService::Query(0, $q);
+
+            header("Location: index.php?action=list_calendar");
         } else {
             $q = "SELECT * FROM 'calendar' WHERE Id = " . $_GET['user'];
             $stmt = DataBaseService::Query(0, $q);
