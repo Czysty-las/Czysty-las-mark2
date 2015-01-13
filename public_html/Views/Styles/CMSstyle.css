@@ -664,4 +664,10 @@ a:hover
     height: 100%;
     display: block;
 }
+
+td > a
+{
+    display: block;
+    
+}
 /*</editor-fold>*/

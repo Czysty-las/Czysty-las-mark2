@@ -27,7 +27,6 @@ class CalendarController extends Controller {
         }
 
         header("Location: index.php?action=list_calendar");
-        
     }
 
     public function Read() {
@@ -40,7 +39,7 @@ class CalendarController extends Controller {
 
         foreach ($stmt as $row) {
             $calendar[$i] = new CalendarModel();
-          
+
             $calendar[$i]->Id = $row['Id'];
             $calendar[$i]->UserId = $row['UserId'];
             $calendar[$i]->Date = $row['Date'];
@@ -55,25 +54,28 @@ class CalendarController extends Controller {
     }
 
     public function Update() {
-        
-        
-        $q = "SELECT * FROM 'calendar' WHERE Id = " . $_GET['user'];
-        $stmt = DataBaseService::Query(0, $q);
-        
-        $wpis = array();
-        
-        foreach ($stmt as $row) {
-            $wpis[$i] = new CalendarModel();
+
+        if (isset($_POST['function']) && $_POST['function'] == 'edit_calendar') {
             
-            $wpis[$i]->Id = $row['Id'];
-            $wpis[$i]->UserId = $row['UserId'];
-            $wpis[$i]->Date = $row['Date'];
-            $wpis[$i]->Topic = $row['Topic'];
-            $wpis[$i]->Description = $row['Description'];
+            
+            
+        } else {
+            $q = "SELECT * FROM 'calendar' WHERE Id = " . $_GET['user'];
+            $stmt = DataBaseService::Query(0, $q);
+            $event = new CalendarModel();
+
+            foreach ($stmt as $row) {
+                $event->Id = $row['Id'];
+                $event->UserId = $row['UserId'];
+                $event->Date = $row['Date'];
+                $event->Topic = $row['Topic'];
+                $event->Description = $row['Description'];
+            }
+            $_SESSION['rez'] = $event;
+
+            include $this->viewsPath . 'CalendarDiscriptionView.php';
         }
-        $_SESSION['rez'] = $wpis;
-        
-        include $this->viewsPath . 'CalendarDiscriptionView.php';
+
         //LogService::message("CalendarController", "Edytowano wpis w kalendarzu");
     }
 
