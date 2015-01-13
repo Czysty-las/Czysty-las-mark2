@@ -104,5 +104,9 @@ class NewsController extends Controller {
         include $this->viewsPath . 'NewsEditView.php';
     }
 
+    public function Presentation() {
+        
+    }
+
 //put your code here
 }

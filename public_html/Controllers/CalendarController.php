@@ -51,4 +51,8 @@ class CalendarController extends Controller {
         //LogService::message("CalendarController", "Edytowano wpis w kalendarzu");
     }
 
+    public function Presentation() {
+        
+    }
+
 }
