@@ -23,7 +23,18 @@ class NewsController extends Controller {
     }
 
     public function Create() {
-        
+        if (isset($_POST['function']) && $_POST['function'] == 'add_news') {
+            $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '".$_POST['title']."', '" . $_POST['content'] . "', '2015-01-13');";
+  //          $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '" . $_POST['title'] . "', ' " . $_POST['content'] . "', '" . date("m.d.y") . "')";
+            DataBaseService::Query(0, $q);
+            
+            header("Location: index.php?action=list_news");
+        } else {
+            $_SESSION['rez'] = new NewsModel();
+            $_GET['mode'] = "add_news";
+
+            include $this->viewsPath . 'NewsEditView.php';
+        }
     }
 
     public function Delete() {

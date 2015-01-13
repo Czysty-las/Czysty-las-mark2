@@ -1,0 +1,1114 @@
+/* 
+    Created on : 2014-10-10, 16:25:56
+    Author     : Lukasz
+*/
+
+/*
+*   Wszystkie style od Znaczników
+*   -------------------Start-------------------
+*/
+html
+{
+    font-family: tahoma;
+}
+body
+{   
+    margin: 0; 
+    height: 100%
+}
+
+form
+{
+    margin: 0;
+}
+a
+
+{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover
+{
+    font-size: 30px;
+}
+
+/*
+*   Wszystkie style od Znaczników
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od Nagłówka
+*   -------------------Start-------------------
+*/
+
+.label 
+{
+    width: 100%;
+    height: 100px;
+    padding: 0 0 0 0;
+    background-color: #70a031;
+}
+
+#CMSname
+{
+    font-size: 30px;
+    color: white;
+}
+
+#pageTitle
+{
+    font-size: 40px;
+    color: white;
+}
+
+.pageTitles
+{
+    text-align: center;
+    display: table-cell;
+    vertical-align:middle;    
+}
+
+.titleContainer
+{
+    width: 100%;
+    height: 100px;
+    display: table;
+}
+
+.titleDivision
+{
+    width: 33.33%;
+    height: 100px;
+    position: relative;
+    float: left;
+}
+
+/*
+*   Wszystkie style od lissty opcji użytkownika
+*   -------------------Start-------------------
+*/
+
+.userMenu
+{
+    width: 200px;
+    height: 100px;
+    float: right;
+    overflow: hidden;
+    position: relative;
+}
+
+.userOption
+{
+    width: 200px;
+    height: 100px;
+    display: table;
+    background-color: #70a031;
+    color: white;
+}
+
+.userName 
+{
+    width: 200px;
+    height: 100px;
+    display: table;
+    color: white;    
+}
+
+.userMenu:hover
+{
+    height: 400px;
+}
+
+.UsersList 
+{
+    width: 30%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    float: left;
+}
+
+.UsersListItem
+{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    display: block;
+    margin: 2px 0 2px 0;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.UsersDetails 
+{
+    width: 70%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    float: left;
+}
+
+.UsersDetails h1
+{
+    text-align: center;
+    color: white;
+    font-family: tahoma;
+}
+
+/*
+*   Wszystkie style od lissty opcji użytkownika
+*   -------------------Koniec-------------------
+*/
+
+
+/*
+*   Wszystkie style od Nagłówka
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od przestrzeni kontentu
+*   -------------------Start-------------------
+*/
+
+.mainContainer 
+{
+    margin: 0 auto;
+    min-width: 1000px;
+    height: 100%;
+
+    background-color: #84af4b;
+}
+
+.Content 
+{
+    margin: 0 auto;
+    height: 550px;
+    min-width: 1000px;
+    max-width: 1200px;
+    padding: 1px;
+    //  overflow-y: scroll;
+}
+
+@media screen and (min-height:800px)
+{
+    .Content 
+    {
+        margin: 0 auto;
+        height: 885px;
+        min-width: 1000px;
+        max-width: 1200px;
+        //    background-color: blue;
+    }
+
+}
+/*
+*   Wszystkie style od przestrzeni kontentu
+*   -------------------Koniec-------------------
+*/
+
+
+/*
+*   Wszystkie style od ikonek CMS-a
+*   -------------------Start-------------------
+*/
+.optionBelt 
+{
+    margin: 40px auto;
+    height: 100px;
+    width: 80%;
+}
+
+.optionsTitle
+{
+    width: 100px;
+    height: 100px;
+    float: left;
+    text-align: left;
+    margin: 0 2px 0 0;
+    color: white;
+}
+
+#content
+{
+    background-color: #a7393b;    
+}
+
+#menage
+{
+    background-color: #5099a6;    
+}
+.title
+{
+    margin: 0;
+    padding: 10px 10px;
+}
+
+.option
+{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    background-color: #70a031;
+    margin: 0 2px 0 2px;
+}
+
+#news
+{
+    background-image: url(../Images/cms/newsy_button.png);
+}
+
+#news:hover
+{
+    background-image: url(../Images/cms/newsy_button.png), url(../Images/cms/hover.png);    
+}
+
+#calender
+{
+    background-image: url(../Images/cms/calendarium_button.png);
+}
+
+#calender:hover
+{
+    background-image: url(../Images/cms/calendarium_button.png), url(../Images/cms/hover.png);        
+}
+
+#gallery
+{
+    background-image: url(../Images/cms/gallery_button.png);   
+}
+
+#gallery:hover
+{
+    background-image: url(../Images/cms/gallery_button.png), url(../Images/cms/hover.png);          
+}
+
+#InForest
+{
+    background-image: url(../Images/cms/w_lesie_button.png);       
+}
+
+#InForest:hover
+{
+    background-image: url(../Images/cms/w_lesie_button.png), url(../Images/cms/hover.png);  
+}
+
+#UpCycling
+{
+    background-image: url(../Images/cms/upcycling_button.png);           
+}
+
+#UpCycling:hover
+{
+    background-image: url(../Images/cms/upcycling_button.png), url(../Images/cms/hover.png);  
+}
+
+#users
+{
+    background-image: url(../Images/cms/users_button.png);           
+}
+
+#users:hover
+{
+    background-image: url(../Images/cms/users_button.png), url(../Images/cms/hover.png);     
+}
+
+#config
+{
+    background-image: url(../Images/cms/settings_button.png);              
+}
+
+#config:hover
+{
+    background-image: url(../Images/cms/settings_button.png), url(../Images/cms/hover.png);   
+}
+
+#tasks
+{
+    background-image: url(../Images/cms/zadania_button.png);     
+}
+
+#tasks:hover
+{
+    background-image: url(../Images/cms/zadania_button.png), url(../Images/cms/hover.png);       
+}
+
+#help
+{
+    background-image: url(../Images/cms/help_button.png);                  
+}
+
+#home
+{
+    margin: 0 auto;
+    background-image: url(../Images/cms/homepage_button.png);
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+#home:hover
+{
+    background-image: url(../Images/cms/homepage_button.png), url(../Images/cms/hover.png);    
+}
+
+/*
+*   Wszystkie style od ikonek CMS-a
+*   -------------------Koniec-------------------
+*/
+
+table
+{
+    width: 1000px;
+    margin: 0px auto;
+
+    border-style: solid;
+    border-width: 1px;
+}
+/*
+*   Wszystkie style od działu newsów
+*   -------------------Start-------------------
+*/
+.currentNews
+{
+    width: 30%;
+    height: 100%;
+
+    overflow-y: scroll;
+    float: left;
+
+    background-color: rgba(0,0,0,0.2);
+}
+
+.newsEditFeald
+{
+    width: 70%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+
+    float: right;
+    position: relative;
+}
+
+.newsContentFeald
+{
+    width: 100%;
+    height: 560px;    
+}
+
+.newsItem
+{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    display: block;
+    background-color: rgba(255,255,255,0.1);
+    margin: 2px 0 2px 0;
+}
+
+.newsItem:hover
+{
+    font-size: 16px;
+    background-color: rgba(255,255,255,0.7);
+}
+
+#teopicInput
+{
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.newsAddItem
+{
+
+    width: 200px;
+    height: 70px;
+    display: block;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -70px;
+
+    background-color: #a7393b; 
+}
+
+.newsDeleteItem
+{
+    width: 25px;
+    height: 25px;
+    float:right;
+    margin: 5px 0 0 0 ;
+
+    border: 0;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.4);
+
+    text-align: center;
+    font-size: 20px;
+    color: rgba(255,255,255,0.3);
+    vertical-align: middle;
+}
+
+.newsOK
+{
+    width: 200px;
+    height: 70px;
+    display: inline-block;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+
+    border: 0;
+    color: white;
+    font-size: 16px;
+    margin: 0 auto;
+
+    background-color: #a7393b;    
+}
+
+.newsOK:hover
+{
+    font-size: 16px;    
+}
+
+.newsCenter
+{
+    width: 400px;
+    margin: 0 auto;
+}
+.newsPointItem
+{
+    width: 25px;
+    height: 25px;
+    float:right;
+    margin: -35px 0 0 0 ;
+
+    border: 0;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.4);
+
+    text-align: center;
+    font-size: 20px;
+    color: rgba(255,255,255,0.3);
+    vertical-align: middle;
+
+}
+
+.newsDeleteItem:hover
+{
+    background-color: rgba(0,0,0,0.5);   
+}
+
+/*
+*   Wszystkie style od działu newsów
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu kalendarza
+*   -------------------Start-------------------
+*/
+
+.calendarList
+{
+    width: 30%;
+    height: 70%;
+    overflow-y: scroll;
+    float: left; 
+    background-color: rgba(0,0,0,0.2);
+}
+
+.calendarRightSite
+{
+    width: 70%;
+    height: 70%;
+    float: right; 
+    background-color: rgba(0,0,0,0.2);
+}
+
+.calendarAddButton
+{
+
+    width: 180px;
+    height: 70px;
+    display: block;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+
+    position:relative;
+    top: 50%;
+    left: 20%;
+    margin: -50px 0 0 -70px;
+
+    background-color: #a7393b; 
+}
+
+/*
+*   Wszystkie style od działu kalendarza
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu W lesie
+*   -------------------Start-------------------
+*/
+
+.inforestContent
+{
+    width: 1000px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    overflow-y: scroll;
+}
+
+.inforestTopicHolder
+{
+    width: 600px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgba(255,255,255,0.1);
+    float: right;
+}
+
+.inforestTopicHolder p
+{
+    height: 50px;
+    line-height: 50px;
+    margin-left: 5px;
+    margin: 0 10px;
+}
+
+.inforestDiscriptionHolder
+{
+    width: 600px;
+    height: 250px;
+    float: right;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    background-color: rgba(255,255,255,0.25); 
+}
+
+.inforestDiscriptionHolder p
+{
+    margin: 10px;
+    position: relative;
+}
+
+.inforestContent a {}
+
+.inforestContent a:hover { font-size: 16px;}
+
+.inforestItem
+{
+    background-color: #70a031;
+    width: 900px;
+    height: 300px;
+    margin: 0 auto 20px;
+
+    display: block;
+}
+
+.inforestImageHolder
+{
+    width: 300px;
+    height: 300px;
+    float: left;
+    background-color: rgba(255,255,255,0.2);    
+}
+
+.inforesrImage
+{
+    margin: 20% 25;
+    max-width: 250px;
+    display: block;
+}
+
+.inforestAddItem
+{
+    width: 200px;
+    height: 70px;
+    display: block;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 10px auto 10px;
+
+    background-color: #a7393b;     
+}
+
+/*
+*   Wszystkie style od działu W lesie
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu Profil
+*   -------------------Start-------------------
+*/
+
+.profileContainer
+{
+    padding: 1px;
+    margin: 0 auto;
+    width: 1000px;
+    height: 650px;
+    background-color: #70a031;
+}
+
+.prfileDisplay
+{
+    width: 260px;
+    height: 650px;
+    float: left;
+}
+
+.prfileDisplay input
+{
+    width: 100%;
+    height: 30px;
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+
+}
+
+.profileContainer p
+{
+    margin: 0 30px;
+    color: white;
+    font-size: 20px;
+    float: left;
+    display: block;
+    width: 200px;
+}
+
+.profileContainer .taskDescription
+{
+    width: 80%;
+    height: 50px;
+    float: left;
+
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.contentContainer
+{
+    margin-top: 15px;
+    margin-right: 30px;
+    width: 600px;
+    height: 300px;
+
+    overflow-y: scroll;
+
+    float: right;
+
+    background-color: #84af4b;
+}
+
+.contentContainer p
+{
+    width: 570px;
+    margin: 5px;
+    text-align: justify;
+}
+
+.profileContainer textarea
+{
+    width: 640px;
+    height: 550px;
+
+    float: right;
+}
+
+.editorContainer
+{
+    width: 740px;
+    height: 650px;
+
+    float: right;   
+}
+
+.profileImage
+{
+    margin: 30px 30px;
+    width: 200px;
+    height: 200px;
+    display: block;
+    float: left;
+}
+
+.profileImage img{max-width: 200px;}
+
+.profileEdit
+{
+    width: 200px;
+    height: 50px;
+
+    display: block;
+    margin: 10px 30px;
+
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+
+    background-color: #a7393b;
+}
+
+.profileEdit:hover{font-size: 16px}
+
+/*
+*   Wszystkie style od działu Profil
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu Zadania
+*   -------------------Start-------------------
+*/
+
+.taskContent
+{
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1px;
+    background-color: #70a031;
+    overflow-y: scroll;
+}
+
+.taskAdd
+{
+    width: 960px;
+    height: 50px;
+    margin: 10px auto;
+    background-color: #84af4b;
+}
+
+.taskOwner
+{
+    width: 20%;
+    height: 50px;
+    float:left;
+
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.taskOwner option
+{
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: #84af4b;   
+}
+
+.taskDescription
+{
+    width: 60%;
+    height: 50px;
+    float: left;
+
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+}
+
+#taskDone
+{
+    width: 80%;    
+}
+
+.clearDone
+{
+    width: 100%;
+    height: 50px;
+    float: left;
+
+    border: 0;
+    //    font-size: 16px;
+    color: white;
+    background-color: #a7393b;
+}
+
+.taskSet
+{
+    width: 20%;
+    height: 50px;
+    display: block;
+    border: 0px;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+
+    background-color: #a7393b;
+}
+
+.taskInProgres
+{
+    width: 960px;
+    height: 45%;
+    margin: 10px auto;
+
+    overflow-y: scroll;
+
+    background-color: #84af4b; 
+}
+
+/*
+*   Wszystkie style od działu Zadania
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu Galeria
+*   -------------------Start-------------------
+*/
+
+.galleryContainer
+{
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 1px;
+    background-color: #70a031;
+    overflow-y: scroll;
+}
+
+.galleryContainer input
+{
+    width: 960px;
+    height: 25px;
+    line-height: 25px;
+    border: 0;
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);    
+}
+
+.mainButtons
+{
+    width: 100%;
+    min-height: 70px;
+    margin: 0 auto;
+}
+
+.galleryContainer .editorContainer
+{
+    width: 960px;
+    height: 585px;
+    background-color: azure;
+    margin: 10px auto;
+    float: none;
+}
+
+.imagesContainer
+{
+    width: 960px;
+    min-height: 100px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.galleryImage
+{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    float: left;
+    margin: 3px;
+}
+
+.mainButtons .galleryImage
+{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    float: none;
+    margin: 3px;
+}
+/*
+.galleryImage:hover
+{
+  width: 400px;
+  height: 400px;
+//  overflow: visible;
+}
+*/
+#addImage
+{
+    width: 100px;
+    height: 100px;
+    margin: 3px;
+    color: white;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 60px;
+    font-weight: bold;
+    background-color: #a7393b;
+    display: block;
+    border: 0;
+}
+
+.galleryContainer textarea
+{
+    width: 100%;
+    height: 450px;
+}
+
+.galleryLink
+{
+    margin: 10px auto;
+    width: 960px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    background-color: #84af4b;
+    display: block;
+}
+
+/*
+*   Wszystkie style od działu Galeria
+*   -------------------Koniec-------------------
+*/
+
+/*
+*   Wszystkie style od działu Konfiguracji
+*   -------------------Start-------------------
+*/
+
+.configContainer
+{
+    width: 1000px;
+    height: 100%;
+
+    margin: 0 auto;
+    padding: 1px;
+    background-color: #70a031;
+}
+
+.contactContainer
+{
+    //   background-color: bisque;
+    width: 100%;
+    height: 300px;
+}
+
+.contactContainer table
+{
+    border: 0;
+    border-spacing: 0;
+    height: 100%;
+}
+
+.contactContainer table tr
+{
+    font-size: 16px;
+    color: white;
+    background-color: #84af4b;
+}
+
+.contactContainer table td
+{
+    //    background-color: aquamarine;
+    padding: 0;
+}
+
+.contactContainer table td input
+{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0;
+
+    font-size: 16px;
+    color: white;
+    background-color: rgba(255,255,255,0.3);
+
+} 
+
+.contactContainer table button
+{
+    width: 100%;
+    height: 100%;
+    background-color: #a7393b;
+    color: white;
+    font-size: 16px;
+    border: 0;
+}
+/*
+*   Wszystkie style od działu Konfiguracji
+*   -------------------Koniec-------------------
+*/
+
+
+td
+{
+    text-align: center;
+}
+
+input
+{
+    width: 100%;
+}
+
+button
+{
+    width: 50%;
+    display: inline-block;
+}
+
+.add
+{
+    width: 100%;
+}
+
+.login
+{
+    width: 600px;
+    height: 205px;
+    background-color: bisque;
+
+    margin: 0 auto;
+}
+
+.loginInputs
+{
+
+}
+
+.loginTable
+{
+    display: inline-block;
+    width: 300px;
+    margin: 50px 50px; 
+}
+
+img
+{
+    display: inline-block
+}

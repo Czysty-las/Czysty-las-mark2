@@ -15,6 +15,7 @@ class UserService {
         if ($stmt != NULL) {
             $_SESSION['User'] = new UserModel;
             while ($row = $stmt->fetch()) {
+                $_SESSION['User']->Id = $row['ID'];
                 $_SESSION['User']->Name = $row['Name'];
                 $_SESSION['User']->Surname = $row['Surname'];
                 self::AssignPermissions($row['Rights']);

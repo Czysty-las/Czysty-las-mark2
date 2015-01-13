@@ -3,7 +3,7 @@
     <body>
         <?php include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'ContentManagementSystemParts' . DIRECTORY_SEPARATOR . 'Label.php'; ?>
         <div class="usersModule">
-            <form action="index.php" method="post">
+            <form action="CMS.php" method="post">
                 <div class="formHolder">
                     <div class="inputHolder">
                         <input type="text" name="ID" hidden="true" value="<?php echo $_SESSION['rez']->Id; ?>"/>
@@ -120,7 +120,7 @@
                 </table>
                 <div class="buttonHolder">
                     <button class="formButton" type="submit" name="function" value="<?php echo $_GET['mode']; ?>">Zapisz</button>
-                    <a class="formButton" href="index.php?action=list_users">Wróć</a>
+                    <a class="formButton" href="CMS.php?action=list_users">Wróć</a>
                 </div>
             </form>
         </div>

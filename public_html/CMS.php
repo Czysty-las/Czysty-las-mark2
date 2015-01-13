@@ -17,10 +17,6 @@ DataBaseService::Connect(ALL);
 
 // <editor-fold desc="Rooting." defaultstate="collapsed">
 
-if (!isset($_GET['page'])) {
-    $_GET['page'] = 'CMS';
-}
-
 if (!isset($_SESSION['usersC'])) {
     $_SESSION['usersC'] = new UsersController;
 }
@@ -33,7 +29,6 @@ if (!isset($_SESSION['calendarC'])) {
     $_SESSION['calendarC'] = new CalendarController;
 }
 
-if ($_GET['page'] == 'CMS') {
     // <editor-fold desc="Akcje logowanie i wylogowania." defaultstate="collapsed">
 
     if (isset($_POST['function'])) {
@@ -158,8 +153,5 @@ if ($_GET['page'] == 'CMS') {
     } else {
         include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'LogInView.php';
     }
-} else {
-    
-}
 // </editor-fold >
 ?>
