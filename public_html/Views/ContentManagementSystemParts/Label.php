@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="titleDivision">
-        <a id="home" href="index.php"></a>
+        <a id="home" href="CMS.php"></a>
     </div>
     <div class="titleDivision">
         <div class="userMenu">
@@ -13,7 +13,7 @@
             <div class="userName"><p class="pageTitles"><?php echo $_SESSION['User']->Name . ' ' . $_SESSION['User']->Surname;?></p></div>
             <div class="userOption"><a class="pageTitles">Profil</a></div>
             <div class="userOption"><a class="pageTitles">Zadania</a></div>
-            <div class="userOption"><a class="pageTitles" href="index.php?function=logoff">Wyloguj</a></div>
+            <div class="userOption"><a class="pageTitles" href="CMS.php?function=logoff">Wyloguj</a></div>
             <?php } ?>
         </div>
     </div>    

@@ -3,7 +3,7 @@
     <body>
         <?php include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Views' . DIRECTORY_SEPARATOR . 'ContentManagementSystemParts' . DIRECTORY_SEPARATOR . 'Label.php'; ?>
         <div class="usersModule">
-            <form action="index.php" method="post">
+            <form action="CMS.php" method="post">
                 <table>
                     <?php
                     $i = 0;
@@ -19,11 +19,11 @@
                         <td>Szukaj:</td><td colspan="3"><input class="search" type="text" placeholder="..."></td><td><button>Szukaj</button></td>
                     </tr>
                     <tr>
-                        <td></td><td><a href="index.php?function=users&sort=Name">Imie</a></td><td><a href="index.php?function=users&sort=Surname">Nazwisko</a></td><td><a href="index.php?function=users&sort=Age">Wiek</a></td><td><a href="index.php?function=users&sort=Sex">Płeć</a></td>
+                        <td></td><td><a href="CMS.php?function=users&sort=Name">Imie</a></td><td><a href="CMS.php?function=users&sort=Surname">Nazwisko</a></td><td><a href="CMS.php?function=users&sort=Age">Wiek</a></td><td><a href="CMS.php?function=users&sort=Sex">Płeć</a></td>
                     </tr>
                     <?php foreach ($_SESSION['rez'] as $user) { ?>
                         <tr>
-                            <td><input type="checkbox" name="selected_<?php echo $i; ?>" value="<?php echo $user->Id; ?>"<?php if ($all) { ?>checked="checked"<?php } ?>/><a href="index.php?action=edit_user&user=<?php echo $user->Id; ?>">Edytuj</a><a href="index.php?action=delete_user&user=<?php echo $user->Id; ?>">Usuń</a><a href="index.php?action=ban&user=<?php echo $user->Id; ?>">Zablokuj</a></td><td><?php echo $user->Name; ?></td><td><?php echo $user->Surname; ?></td><td><?php echo $user->Age; ?></td><td><?php
+                            <td><input type="checkbox" name="selected_<?php echo $i; ?>" value="<?php echo $user->Id; ?>"<?php if ($all) { ?>checked="checked"<?php } ?>/><a href="CMS.php?action=edit_user&user=<?php echo $user->Id; ?>">Edytuj</a><a href="CMS.php?action=delete_user&user=<?php echo $user->Id; ?>">Usuń</a><a href="CMS.php?action=ban&user=<?php echo $user->Id; ?>">Zablokuj</a></td><td><?php echo $user->Name; ?></td><td><?php echo $user->Surname; ?></td><td><?php echo $user->Age; ?></td><td><?php
                                 if ($user->Sex == 'M') {
                                     echo 'Mężczyzna';
                                 } else {
@@ -36,10 +36,10 @@
                     }
                     ?>
                     <tr>
-                        <td colspan="5"><a href="index.php?action=add_user">Dodaj</a></td>
+                        <td colspan="5"><a href="CMS.php?action=add_user">Dodaj</a></td>
                     </tr>
                     <tr>
-                        <td><a href="index.php?function=users<?php
+                        <td><a href="CMS.php?function=users<?php
                             if (!$all) {
                                 echo "&select=all";
                             }

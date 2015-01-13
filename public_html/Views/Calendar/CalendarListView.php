@@ -11,9 +11,9 @@
 
                     <?php 
                     foreach ($_SESSION['rez'] as $event) { ?>
-                    <tr>
-                        <td class="eventTitle"><a class = acall href="index.php?action=edit_calendar&calendar=<?php echo $event->Id; ?>"><?php echo $event->Topic; ?></a> </td>
-                        <td class="eventDate"><a class = acall href="index.php?action=edit_calendar&calendar=<?php echo $event->Id; ?>"><?php echo $event->Date; ?> </a></td>
+                    <tr> 
+                        <td class="eventTitle"><a href="CMS.php?action=edit_calendar&calendar=<?php echo $event->Id; ?>"><?php echo $event->Topic; ?></a> </td>
+                        <td class="eventDate"> <?php echo $event->Date; ?> </td>
                     </tr>
                         
                     <?php } ?>

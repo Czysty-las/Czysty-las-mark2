@@ -38,4 +38,7 @@ abstract class Controller {
      */
 
     public abstract function Delete();
+    
+    
+    public abstract function Presentation();
 }
