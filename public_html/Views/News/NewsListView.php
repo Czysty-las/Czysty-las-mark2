@@ -8,8 +8,8 @@
                     <div class="newsItem">
 
                         <div class="titleBar">
-                            <div class="title"><?php echo $news->title; ?></div><div class="author">
-                                <?php echo $news->authorName." ".$news->authorSurname; ?></div><div class="date"><?php echo $news->date; ?></div>
+                            <div class="title" name="title"><?php echo $news->title; ?></div><div class="author">
+                                <?php echo $news->authorName . " " . $news->authorSurname; ?></div><div class="date"><?php echo $news->date; ?></div>
                         </div>
 
                         <div class="content">

@@ -62,7 +62,7 @@ if ($_GET['page'] == 'CMS') {
                 case 'list_calendar';
                     $_SESSION['calendarC']->Read();
                     break;
-                case "delete_calendar":                    
+                case "delete_calendar":
                     if (isset($_GET['calendar'])) {
                         $_SESSION['calendarC']->Delete();
                     }
@@ -128,6 +128,20 @@ if ($_GET['page'] == 'CMS') {
                     break;
                 case "add_user":
                     $_SESSION['usersC']->Create();
+                    break;
+                
+                case 'edit_news';
+                    $_SESSION['newsC']->Update();
+                    break;
+                case "add_news":
+                    $_SESSION['newsC']->Create();
+                    break;
+                
+                case 'edit_calendar';
+                    $_SESSION['calendarC']->Update();
+                    break;
+                case "add_calendar":
+                    $_SESSION['calendarC']->Create();
                     break;
             }
         }

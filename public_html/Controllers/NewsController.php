@@ -29,7 +29,7 @@ class NewsController extends Controller {
     public function Delete() {
         $q = "DELETE FROM `devdb`.`news` WHERE `news`.`ID` = " . $_GET['news'];
         DataBaseService::Query(0, $q);
-        
+
         if ($stmt != NULL) {
             LogService::message("UsersController", "News deleted!");
         }
@@ -67,7 +67,30 @@ class NewsController extends Controller {
     }
 
     public function Update() {
-        
+        if (isset($_POST['function']) && $_POST['function'] == 'edit_news') {
+
+            $q = "UPDATE `devdb`.`news` SET `title` = '" . $_POST['title'] . "', `content` = '" . $_POST['content'] . "' WHERE `news`.`ID` = " . $_POST['ID'];
+            DataBaseService::Query(0, $q);
+
+            header("Location: index.php?action=list_news");
+        } else {
+            $q = "SELECT news.*, users.Name, users.Surname FROM news LEFT OUTER JOIN users ON news.authorID = users.ID WHERE news.ID = " . $_GET['news'];
+            $stmt = DataBaseService::Query(0, $q);
+
+            $news = new NewsModel();
+
+            foreach ($stmt as $row) {
+                $news->ID = $row['ID'];
+                $news->title = $row['title'];
+                $news->content = $row['content'];
+                $news->date = $row['date'];
+            }
+        }
+
+        $_SESSION['rez'] = $news;
+        $_GET['mode'] = "edit_news";
+
+        include $this->viewsPath . 'NewsEditView.php';
     }
 
 //put your code here
