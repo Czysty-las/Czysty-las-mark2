@@ -25,10 +25,9 @@ class NewsController extends Controller {
     public function Create() {
         if (isset($_POST['function']) && $_POST['function'] == 'add_news') {
             $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '" . $_POST['title'] . "', '" . $_POST['content'] . "', '2015-01-13');";
-            //          $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '" . $_POST['title'] . "', ' " . $_POST['content'] . "', '" . date("m.d.y") . "')";
             DataBaseService::Query(0, $q);
 
-            header("Location: index.php?action=list_news");
+            header("Location: CMS.php?action=list_news");
         } else {
             $_SESSION['rez'] = new NewsModel();
             $_GET['mode'] = "add_news";
@@ -52,7 +51,8 @@ class NewsController extends Controller {
         $q = "SELECT news.*, users.Name, users.Surname "
                 . "FROM news "
                 . "LEFT OUTER JOIN users "
-                . "ON news.authorID = users.ID";
+                . "ON news.authorID = users.ID "
+                . "ORDER BY `news`.`date` DESC";
 
         $stmt = DataBaseService::Query(0, $q);
 
@@ -83,7 +83,7 @@ class NewsController extends Controller {
             $q = "UPDATE `devdb`.`news` SET `title` = '" . $_POST['title'] . "', `content` = '" . $_POST['content'] . "' WHERE `news`.`ID` = " . $_POST['ID'];
             DataBaseService::Query(0, $q);
 
-            header("Location: index.php?action=list_news");
+            header("Location: CMS.php?action=list_news");
         } else {
             $q = "SELECT news.*, users.Name, users.Surname FROM news LEFT OUTER JOIN users ON news.authorID = users.ID WHERE news.ID = " . $_GET['news'];
             $stmt = DataBaseService::Query(0, $q);
@@ -105,40 +105,65 @@ class NewsController extends Controller {
     }
 
     public function Presentation() {
-        $q = "SELECT news.*, users.Name, users.Surname "
-                . "FROM news "
-                . "LEFT OUTER JOIN users "
-                . "ON news.authorID = users.ID";
+        if (isset($_GET['id'])) {
+            $q = "SELECT news.*, users.Name, users.Surname "
+                    . "FROM news "
+                    . "LEFT OUTER JOIN users "
+                    . "ON news.authorID = users.ID"
+                    . " WHERE news.ID = " . $_GET['id'];
 
-        $stmt = DataBaseService::Query(0, $q);
+            $stmt = DataBaseService::Query(0, $q);
 
-        $pages = $posts = 0;
-
-        $page;
-        if (!isset($_GET['page'])) {
-            $page = 0;
-        }
-
-        
-        foreach ($stmt as $row) {
-            $news[$pages][$posts] = new NewsModel();
-            $news[$pages][$posts]->ID = $row['ID'];
-            $news[$pages][$posts]->authorName = $row['Name'];
-            $news[$pages][$posts]->authorSurname = $row['Surname'];
-            $news[$pages][$posts]->title = $row['title'];
-            $news[$pages][$posts]->content = $row['content'];
-            $news[$pages][$posts]->date = $row['date'];
-            ++$posts;
-
-            if ($posts == 10) {
-                ++$pages;
-                $posts = 0;
+            foreach ($stmt as $row) {
+                $news = new NewsModel();
+                $news->ID = $row['ID'];
+                $news->authorName = $row['Name'];
+                $news->authorSurname = $row['Surname'];
+                $news->title = $row['title'];
+                $news->content = $row['content'];
+                $news->date = $row['date'];
             }
+
+            $_SESSION['rez'] = $news;
+            include _ROOT_PATH . DIRECTORY_SEPARATOR . "Presentation" . DIRECTORY_SEPARATOR ."News".DIRECTORY_SEPARATOR. "NewsView.php";
+        } else {
+            $q = "SELECT news.*, users.Name, users.Surname "
+                    . "FROM news "
+                    . "LEFT OUTER JOIN users "
+                    . "ON news.authorID = users.ID "
+                    . "ORDER BY news.date DESC";
+
+            $stmt = DataBaseService::Query(0, $q);
+
+            $page = $pages = $posts = 0;
+
+            ;
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 0;
+            }
+
+
+            foreach ($stmt as $row) {
+                $news[$pages][$posts] = new NewsModel();
+                $news[$pages][$posts]->ID = $row['ID'];
+                $news[$pages][$posts]->authorName = $row['Name'];
+                $news[$pages][$posts]->authorSurname = $row['Surname'];
+                $news[$pages][$posts]->title = $row['title'];
+                $news[$pages][$posts]->content = $row['content'];
+                $news[$pages][$posts]->date = $row['date'];
+                ++$posts;
+
+                if ($posts == 10) {
+                    ++$pages;
+                    $posts = 0;
+                }
+            }
+
+            $_SESSION['rez'] = $news;
+            include _ROOT_PATH . DIRECTORY_SEPARATOR . "Presentation" . DIRECTORY_SEPARATOR . "News" . DIRECTORY_SEPARATOR . "NewsListView.php";
         }
-
-        $_SESSION['rez'] = $news;
-
-        include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Presentation' . DIRECTORY_SEPARATOR . "News.php";
     }
 
 //put your code here

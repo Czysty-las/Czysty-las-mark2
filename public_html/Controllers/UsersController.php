@@ -29,7 +29,7 @@ class UsersController extends Controller {
                     . $_POST['Login'] . "', 'gggwww', '$Rights')";
 
             DataBaseService::Query(0, $q);
-            header("Location: index.php?action=list_users");
+            header("Location: CMS.php?action=list_users");
         } else {
             $_GET['mode'] = "add_user";
             $_SESSION['rez'] = new UserModel;
@@ -47,7 +47,7 @@ class UsersController extends Controller {
             LogService::message("UsersController", "User deleted!");
         }
 
-        header("Location: index.php?action=list_users");
+        header("Location: CMS.php?action=list_users");
     }
 
     public function Read() {
