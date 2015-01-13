@@ -3,6 +3,7 @@
 define('_ROOT_PATH', dirname(__FILE__));
 include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'includes.php';
 
+include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'modulesInitialization.php';
 
 
 if (isset($_GET['action'])) {

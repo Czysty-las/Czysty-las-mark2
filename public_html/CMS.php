@@ -15,8 +15,6 @@ include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . '
 
 
 // <editor-fold desc="Rooting." defaultstate="collapsed">
-
-
 // <editor-fold desc="Akcje logowanie i wylogowania." defaultstate="collapsed">
 
 if (isset($_POST['function'])) {
