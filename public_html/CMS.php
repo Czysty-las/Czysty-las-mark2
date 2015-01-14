@@ -98,6 +98,25 @@ if (isset($_SESSION['User'])) {
                 break;
             // </editor-fold>
             // <editor-fold desc="Akcje Galeri" defaultstate="collapsed">
+            case 'list_gallery';
+                $_SESSION['galleryC']->Read();
+                break;
+            case "delete_gallery":
+                //  Usuwanie wymaga tylko jednej zmiennej, ID rekordu, który ma zostać usunięty.
+                //  Generowany jest linkt, który ma tą zmienną. - W widoku.
+                if (isset($_GET['gallery'])) {
+                    $_SESSION['galleryC']->Delete();
+                }
+                break;
+            case "edit_gallery":
+                if (isset($_GET['gallery'])) {
+                    $_SESSION['galleryC']->Update();
+                }
+                break;
+            case "add_gallery":
+                $_SESSION['galleryC']->Create();
+                break;
+
             // </editor-fold>
         }
     }
@@ -132,7 +151,14 @@ if (isset($_SESSION['User'])) {
                 $_SESSION['newsC']->Create();
                 break;
             // </editor-fold>
-            // <editor-fold desc="Akcje Galeri" defaultstate="collapsed">
+            // <editor-fold desc="Akcje Galerii" defaultstate="collapsed">
+            case 'edit_gallery';
+                $_SESSION['galleryC']->Update();
+                break;
+            case "add_gallery":
+                $_SESSION['galleryC']->Create();
+                break;
+
             // </editor-fold>
         }
     }

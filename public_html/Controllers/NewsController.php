@@ -24,7 +24,7 @@ class NewsController extends Controller {
 
     public function Create() {
         if (isset($_POST['function']) && $_POST['function'] == 'add_news') {
-            $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '" . $_POST['title'] . "', '" . $_POST['content'] . "', '2015-01-13');";
+            $q = "INSERT INTO `devdb`.`news` (`ID`, `authorID`, `title`, `content`, `date`) VALUES (NULL, '" . $_SESSION['User']->Id . "', '" . $_POST['title'] . "', '" . $_POST['content'] . "', '".date("Y-m-d").";');";
             DataBaseService::Query(0, $q);
 
             header("Location: CMS.php?action=list_news");
@@ -71,8 +71,6 @@ class NewsController extends Controller {
 
             ++$i;
         }
-
-        $_SESSION['rez'] = $news;
 
         include $this->viewsPath . "NewsListView.php";
     }

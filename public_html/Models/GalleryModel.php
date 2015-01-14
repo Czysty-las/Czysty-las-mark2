@@ -11,16 +11,20 @@
  *
  * @author Lukasz
  */
+class PhotoModel {
 
-class PhotoModel{
     public $owner;
     public $name;
+
 }
 
 class GalleryModel {
-    public $photos = array();
+
+    public $Id;
     public $title;
     public $authorName;
     public $authorSurname;
     public $date;
+    public $photos = array();
+
 }

@@ -16,4 +16,9 @@ if (!isset($_SESSION['newsC'])) {
 if (!isset($_SESSION['calendarC'])) {
     $_SESSION['calendarC'] = new CalendarController;
 }
+
+if (!isset($_SESSION['galleryC'])) {
+    $_SESSION['galleryC'] = new GalleryController;
+}
+
 ?>
