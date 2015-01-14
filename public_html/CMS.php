@@ -97,6 +97,8 @@ if (isset($_SESSION['User'])) {
                 $_SESSION['newsC']->Create();
                 break;
             // </editor-fold>
+            // <editor-fold desc="Akcje Galeri" defaultstate="collapsed">
+            // </editor-fold>
         }
     }
 
@@ -104,19 +106,7 @@ if (isset($_SESSION['User'])) {
     // Post = formularz
     if (isset($_POST['function'])) {
         switch ($_POST['function']) {
-            case 'edit_user';
-                $_SESSION['usersC']->Update();
-                break;
-            case "add_user":
-                $_SESSION['usersC']->Create();
-                break;
-
-            case 'edit_news';
-                $_SESSION['newsC']->Update();
-                break;
-            case "add_news":
-                $_SESSION['newsC']->Create();
-                break;
+            // <editor-fold desc="Akcje kalendarza" defaultstate="collapsed">
 
             case 'edit_calendar';
                 $_SESSION['calendarC']->Update();
@@ -124,6 +114,26 @@ if (isset($_SESSION['User'])) {
             case "add_calendar":
                 $_SESSION['calendarC']->Create();
                 break;
+            // </editor-fold>
+            // <editor-fold desc="Akcje urzytkownika" defaultstate="collapsed">
+
+            case 'edit_user';
+                $_SESSION['usersC']->Update();
+                break;
+            case "add_user":
+                $_SESSION['usersC']->Create();
+                break;
+            // </editor-fold>
+            // <editor-fold desc="Akcje Newsów" defaultstate="collapsed">
+            case 'edit_news';
+                $_SESSION['newsC']->Update();
+                break;
+            case "add_news":
+                $_SESSION['newsC']->Create();
+                break;
+            // </editor-fold>
+            // <editor-fold desc="Akcje Galeri" defaultstate="collapsed">
+            // </editor-fold>
         }
     }
     //  Widok listy.
