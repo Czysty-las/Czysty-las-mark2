@@ -20,6 +20,22 @@ class GalleryController extends Controller {
                 . DIRECTORY_SEPARATOR . "Gallery" . DIRECTORY_SEPARATOR;
     }
 
+    public function InsertImage() {
+
+        for ($i = 0; $i < count($_FILES['photos']['size']); $i++) {
+
+            if (strstr($_FILES['photos']['type'][$i], 'image') !== false) {
+                $name = time() . '_' . $_FILES['photos']['name'][$i];
+                $file = _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'Images' . DIRECTORY_SEPARATOR . $name;
+                move_uploaded_file($_FILES['photos']['tmp_name'][$i], $file);
+
+                $q = "INSERT INTO `devdb`.`photos` (`owner`, `name`) VALUES ('" . $_POST['Id'] . "', '" . $name . "');";
+                DataBaseService::Query(0, $q);
+            }
+        }
+        header("Location: CMS.php?action=edit_gallery&gallery=" . $_POST['Id']);
+    }
+
     public function Create() {
         $q = "INSERT INTO `devdb`.`gallery` "
                 . "(`Id`, `authorId`, `title`, `date`) "
@@ -62,35 +78,43 @@ class GalleryController extends Controller {
     }
 
     public function Update() {
-        $q = "SELECT gallery.*, users.Name, users.Surname "
-                . "FROM gallery "
-                . "LEFT OUTER JOIN users "
-                . "ON gallery.authorId = users.ID "
-                . "WHERE gallery.Id = " . $_GET['gallery'];
+        if (isset($_POST['function']) && $_POST['function'] == 'edit_gallery') {
+            $q = "UPDATE `devdb`.`gallery` SET `title` = '" . $_POST['title'] . "' WHERE `gallery`.`Id` = " . $_POST['Id'];
+            DataBaseService::Query(0, $q);
 
-        $stmt = DataBaseService::Query(0, $q);
+            header("Location: CMS.php?action=edit_gallery&gallery=" . $_POST['Id']);
+        } else {
 
-        foreach ($stmt as $row) {
-            $gallery = new GalleryModel;
-            $gallery->Id = $row['Id'];
-            $gallery->title = $row['title'];
-            $gallery->authorName = $row['Name'];
-            $gallery->authorSurname = $row['Surname'];
-            $gallery->date = $row['date'];
+            $q = "SELECT gallery.*, users.Name, users.Surname "
+                    . "FROM gallery "
+                    . "LEFT OUTER JOIN users "
+                    . "ON gallery.authorId = users.ID "
+                    . "WHERE gallery.Id = " . $_GET['gallery'];
+
+            $stmt = DataBaseService::Query(0, $q);
+
+            foreach ($stmt as $row) {
+                $gallery = new GalleryModel;
+                $gallery->Id = $row['Id'];
+                $gallery->title = $row['title'];
+                $gallery->authorName = $row['Name'];
+                $gallery->authorSurname = $row['Surname'];
+                $gallery->date = $row['date'];
+            }
+
+            $q = "SELECT * FROM `photos` WHERE `owner` =" . $_GET['gallery'];
+
+            $stmt = DataBaseService::Query(0, $q);
+            $i = 0;
+
+            foreach ($stmt as $row) {
+                $gallery->photos[$i] = new PhotoModel;
+                $gallery->photos[$i]->name = $row['name'];
+                ++$i;
+            }
+
+            include $this->viewsPath . "GalleryEditView.php";
         }
-
-        $q = "SELECT * FROM `photos` WHERE `owner` =" . $_GET['gallery'];
-
-        $stmt = DataBaseService::Query(0, $q);
-        $i = 0;
-
-        foreach ($stmt as $row) {
-            $gallery->photos[$i] = new PhotoModel;
-            $gallery->photos[$i]->name = $row['name'];
-            ++$i;
-        }
-
-        include $this->viewsPath . "GalleryEditView.php";
     }
 
 //put your code here
