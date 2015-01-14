@@ -161,6 +161,9 @@ if (isset($_SESSION['User'])) {
             case "add_photo":
                 $_SESSION['galleryC']->InsertImage();
                 break;
+            case "delete_photo":
+                $_SESSION['galleryC']->DeleteImages();
+                break;
             // </editor-fold>
         }
     }

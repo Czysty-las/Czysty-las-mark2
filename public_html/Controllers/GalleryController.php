@@ -33,6 +33,19 @@ class GalleryController extends Controller {
                 DataBaseService::Query(0, $q);
             }
         }
+
+        header("Location: CMS.php?action=edit_gallery&gallery=" . $_POST['Id']);
+    }
+
+    public function DeleteImages() {
+        for ($i = 0; $i < $_POST['photosNumber']; ++$i) {
+            if (isset($_POST['photo_' . $i])) {
+                $q = "DELETE FROM `devdb`.`photos` WHERE `photos`.`name` = '" . $_POST['photo_' . $i] . "'";
+                DataBaseService::Query(0, $q);
+                $file = _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'Images' . DIRECTORY_SEPARATOR . $_POST['photo_' . $i];
+                unlink($file);
+            }
+        }
         header("Location: CMS.php?action=edit_gallery&gallery=" . $_POST['Id']);
     }
 

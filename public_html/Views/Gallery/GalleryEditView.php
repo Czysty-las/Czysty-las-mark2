@@ -13,7 +13,7 @@
                     <div class="actions">
                         <div class="galleryOption">Opcje</div>
                         <button type="submit" name="function" value="edit_gallery">Zapisz</button>
-                        <button type="submit" name="function" value="delate_photo">Usuń zdjęcia</button>
+                        <button type="submit" name="function" value="delete_photo">Usuń zdjęcia</button>
                         <input type="file" multiple="multiple" name="photos[]">
                         <button type="submit" name="function" value="add_photo">Wstaw</button>
                     </div>
@@ -27,6 +27,7 @@
                     </div>
                     <?php ++$i ?>
                 <?php } ?>
+                <input type="text" hidden="hidden" name="photosNumber" value="<?php echo $i; ?>"/>
             </form>
 
         </div>
