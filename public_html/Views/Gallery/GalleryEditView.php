@@ -12,7 +12,9 @@
                 <?php $i = 0; ?>
                 <?php foreach ($gallery->photos as $photo) { ?>
                     <div class="photo" style="background-image: url('./Resources/Images/<?php echo $photo->name; ?>')">
-                        <input name="photo_<?php echo $i; ?>" type="checkbox"/>
+                        <a href="Resources/Images/<?php echo $photo->name; ?>">
+                            <input name="photo_<?php echo $i; ?>" type="checkbox"/>
+                        </a>
                     </div>
                     <?php ++$i ?>
                 <?php } ?>
