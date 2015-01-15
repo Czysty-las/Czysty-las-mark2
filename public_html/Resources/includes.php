@@ -15,6 +15,7 @@ include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Models' . DIRECTORY_SEPARATOR . 'Gal
 
 include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Service' . DIRECTORY_SEPARATOR . 'DataBaseService.php';
 include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Service' . DIRECTORY_SEPARATOR . 'UserService.php';
+include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Service' . DIRECTORY_SEPARATOR . 'FileService.php';
 
 // </editor-fold>
 // <editor-fold desc="Kontlolery" defaultstate="collapsed">

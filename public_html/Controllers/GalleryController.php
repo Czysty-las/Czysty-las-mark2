@@ -15,7 +15,7 @@ class GalleryController extends Controller {
 
     function __construct() {
         $this->viewsPath = _ROOT_PATH
-                . DIRECTORY_SEPARATOR
+                . DIRECTORY_SEPARATOR 
                 . "Views"
                 . DIRECTORY_SEPARATOR . "Gallery" . DIRECTORY_SEPARATOR;
     }
@@ -25,9 +25,8 @@ class GalleryController extends Controller {
         for ($i = 0; $i < count($_FILES['photos']['size']); $i++) {
 
             if (strstr($_FILES['photos']['type'][$i], 'image') !== false) {
-                $name = time() . '_' . $_FILES['photos']['name'][$i];
-                $file = _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'Images' . DIRECTORY_SEPARATOR . $name;
-                move_uploaded_file($_FILES['photos']['tmp_name'][$i], $file);
+
+                $name = FileService::SaveFileOnServer('Images', $_FILES['photos']['tmp_name'][$i], $_FILES['photos']['name'][$i]);
 
                 $q = "INSERT INTO `devdb`.`photos` (`owner`, `name`) VALUES ('" . $_POST['Id'] . "', '" . $name . "');";
                 DataBaseService::Query(0, $q);
@@ -42,8 +41,10 @@ class GalleryController extends Controller {
             if (isset($_POST['photo_' . $i])) {
                 $q = "DELETE FROM `devdb`.`photos` WHERE `photos`.`name` = '" . $_POST['photo_' . $i] . "'";
                 DataBaseService::Query(0, $q);
-                $file = _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'Images' . DIRECTORY_SEPARATOR . $_POST['photo_' . $i];
-                unlink($file);
+
+                FileService::DeleteFileFromServer('Images', $_POST['photo_' . $i]);
+                /*     $file = _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'Images' . DIRECTORY_SEPARATOR . $_POST['photo_' . $i];
+                  unlink($file); */
             }
         }
         header("Location: CMS.php?action=edit_gallery&gallery=" . $_POST['Id']);
