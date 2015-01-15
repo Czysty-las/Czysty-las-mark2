@@ -6,5 +6,6 @@ class CalendarModel {
     public $Date;
     public $Topic;
     public $Description;
+    public $UserLogin;
 
 }

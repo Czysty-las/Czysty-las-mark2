@@ -12,7 +12,20 @@ class CalendarController extends Controller {
     }
 
     public function Create() {
+    if (isset($_POST['function']) && $_POST['function'] == 'add_calendar') {
+        $q = "INSERT INTO `calendar` ('Id', `UserId`, 'Date` , `Topic' , 'Description') VALUES(NULL,'" . $_SESSION['User']->Id . "','" . $_POST[Date] . "','"
+            . $_POST[Topic] . "','" . $_POST[Description] . "')"; 
+            
+            DataBaseService::Query(0, $q);
 
+            header("Location: index.php?action=list_calendar");
+    }
+    else
+    {
+        
+        
+        
+    }
         LogService::message("CalendarController", "Stworzono nowy wpis w kalendarzu");
     }
 
@@ -57,12 +70,12 @@ class CalendarController extends Controller {
 
         if (isset($_POST['function']) && $_POST['function'] == 'edit_calendar') {
             
-            $q = "UPDATE `calendar` SET `Topic` = '" . $_POST['Topic'] ."', `Description` = '" . $_POST['Description'] . "', `Date` = '" . $_POST['Date'] . " WHERE `ID` = " . $_POST['Id'];
+            $q = "UPDATE `calendar` SET `Topic` = '" . $_POST['Topic'] ."', `Description` = '" . $_POST['Description'] . "', `Date` = '" . $_POST['Date'] . " WHERE `Id` = " . $_POST['Id'];
             DataBaseService::Query(0, $q);
 
             header("Location: index.php?action=list_calendar");
         } else {
-            $q = "SELECT * FROM 'calendar' WHERE Id = " . $_GET['user'];
+            $q = "SELECT calendar.*, users.login  FROM calendar LEFT OUTER JOIN users ON calendar.UserId = users.ID WHERE calendar.Id = " . $_GET['calendar'];
             $stmt = DataBaseService::Query(0, $q);
             $event = new CalendarModel();
 
@@ -72,8 +85,9 @@ class CalendarController extends Controller {
                 $event->Date = $row['Date'];
                 $event->Topic = $row['Topic'];
                 $event->Description = $row['Description'];
+                $event->UserLogin = $row['login'];
             }
-            $_SESSION['rez'] = $event;
+          
 
             include $this->viewsPath . 'CalendarDiscriptionView.php';
         }

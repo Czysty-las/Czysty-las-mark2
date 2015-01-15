@@ -663,6 +663,22 @@ td > a
     display: block;
 
 }
+
+.calendarDescriptionButtons
+{
+    height: 20%;
+    width: 80%;
+margin: 0 auto; 
+}
+
+.calendarDescriptionTopic
+{
+    height: 80%;
+    width: 80%;
+    display:block;
+    margin: 0 auto;
+   
+}
 /*</editor-fold>*/
 
 /*<editor-fold desc="Galeria" defaultstate="collapsed">*/
