@@ -46,43 +46,6 @@ p
     text-align: justify;
 }
 
-.newsPagesHolder
-{
-    width: 50%;
-    height: 50px;
-    margin: 0 auto 10px;;
-}
-
-.newsPagesHolder a
-{
-    height: 50px;
-    display: block;
-    float: left;
-    line-height: 50px;
-    margin: 0 2px 0 2px;
-
-    color: #bccb89;
-}
-
-.newsPagesNavButton
-{
-    width: 10%;
-    height: 50px;
-    float: left;
-}
-
-.newsPagesNavButton a
-{
-
-}
-
-.newsPagesButton
-{
-    width: 80%;
-    height: 50px;
-    float: left;
-}
-
 .newsReadMore, .newsAuthor
 {
     width: 50%;

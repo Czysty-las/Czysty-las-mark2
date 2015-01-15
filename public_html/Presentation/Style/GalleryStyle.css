@@ -18,27 +18,62 @@ and open the template in the editor.
     float: none;
     //    position: absolute;
 }
-
-.galleryLink
+.galleryList
 {
-    margin: 10px auto;
     width: 100%;
-    height: 35px;
-    line-height: 35px;
-    font-size: 16px;
-    background-color: rgba(255,255,255,0.3);
-    display: block;
-    
-    text-decoration: none;
-    
-    color: white;
+    height: 650px;
+    float: left;
+}
+.galleryItem
+{
+    width: 100%;
+    height: 50px;
+    margin: 0 0 10px 0;
 }
 
-.galleryImage
+.galleryItem .title
 {
-    width: 110px;
-    height: 110px;
+    display: block;
+    width: 100%;
+    height: 50px;
+    color: #acdb3f;
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-family: tahoma;
+}
+
+.galleryItem a:hover
+{
+    text-decoration: underline;
+}
+
+.galleryPhoto
+{
+    width: 550px;
+    height: 550px;
+    background-color: #70a031;
+    margin: 25px auto 25px auto;
+
+    background-repeat: no-repeat;
     background-size: cover;
-    float: left;
-    margin: 5px;
+    background-position: 50% 50%;
+}
+
+.galleryPhoto a
+{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.galleryPhoto a:hover
+{
+    background-color: rgba(255,255,255,0.4);
+    background-image: url('../Images/zoom_button.png');
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+    background-position: 50% 50%;
+
 }

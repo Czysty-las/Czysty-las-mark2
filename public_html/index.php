@@ -11,6 +11,9 @@ if (isset($_GET['action'])) {
         case 'News':
             $_SESSION['newsC']->Presentation();
             break;
+        case 'Gallery':
+            $_SESSION['galleryC']->Presentation();
+            break;
     }
 } else {
     include _ROOT_PATH . DIRECTORY_SEPARATOR . 'Presentation' . DIRECTORY_SEPARATOR . "index.php";

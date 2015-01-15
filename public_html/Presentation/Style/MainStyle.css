@@ -219,6 +219,42 @@ p
 
 
 
+.PagesHolder
+{
+    width: 50%;
+    height: 50px;
+    margin: 0 auto 10px;
+}
+
+.PagesHolder a
+{
+    height: 50px;
+    display: block;
+    float: left;
+    line-height: 50px;
+    margin: 0 2px 0 2px;
+
+    color: #bccb89;
+}
+
+.PagesNavButton
+{
+    width: 10%;
+    height: 50px;
+    float: left;
+}
+
+.PagesNavButton a
+{
+
+}
+
+.PagesButton
+{
+    width: 80%;
+    height: 50px;
+    float: left;
+}
 
 
 

@@ -703,6 +703,9 @@ margin: 0 auto;
 
     background-size: cover;
     float: left;
+    background-position: 50% 50%;
+    
+    margin: 2px;
 }
 
 .galleryEditModule .photo a
@@ -726,6 +729,11 @@ margin: 0 auto;
     height: 50px;
     margin: 0 0 5px 0;
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+#addGalleryButton
+{
+    width: 40%;
 }
 
 .galleryItem .title, .button, .author

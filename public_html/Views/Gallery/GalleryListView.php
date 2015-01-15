@@ -6,7 +6,7 @@
             <?php if (isset($_GET['add']) && $_GET['add']) { ?>
                 <form action="CMS.php" method="post">
                     <div class="galleryItem">
-                        <input type="text" name="title"/><button type="submit" name="function" value="add_gallery">Dodaj</button>
+                        <input type="text" name="title"/><button id="addGalleryButton"type="submit" name="function" value="add_gallery">Dodaj</button>
                     </div>
                 </form>
             <?php } else { ?>

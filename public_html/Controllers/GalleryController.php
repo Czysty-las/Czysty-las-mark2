@@ -15,7 +15,7 @@ class GalleryController extends Controller {
 
     function __construct() {
         $this->viewsPath = _ROOT_PATH
-                . DIRECTORY_SEPARATOR 
+                . DIRECTORY_SEPARATOR
                 . "Views"
                 . DIRECTORY_SEPARATOR . "Gallery" . DIRECTORY_SEPARATOR;
     }
@@ -43,11 +43,25 @@ class GalleryController extends Controller {
                 DataBaseService::Query(0, $q);
 
                 FileService::DeleteFileFromServer('Images', $_POST['photo_' . $i]);
-                /*     $file = _ROOT_PATH . DIRECTORY_SEPARATOR . 'Resources' . DIRECTORY_SEPARATOR . 'Images' . DIRECTORY_SEPARATOR . $_POST['photo_' . $i];
-                  unlink($file); */
             }
         }
         header("Location: CMS.php?action=edit_gallery&gallery=" . $_POST['Id']);
+    }
+
+    private function SelectPhotos($_galleryId) {
+
+        $q = "SELECT * FROM `photos` WHERE `owner` =" . $_galleryId;
+
+        $stmt = DataBaseService::Query(0, $q);
+        $i = 0;
+
+        foreach ($stmt as $row) {
+            $photos[$i] = new PhotoModel;
+            $photos[$i]->name = $row['name'];
+            ++$i;
+        }
+        
+        return $photos;
     }
 
     public function Create() {
@@ -61,11 +75,77 @@ class GalleryController extends Controller {
     }
 
     public function Delete() {
-        
+        $q = "SELECT * FROM `photos` WHERE `owner` = " . $_GET['gallery'];
+        $stmt = DataBaseService::Query(0, $q);
+
+        foreach ($stmt as $row) {
+            FileService::DeleteFileFromServer('Images', $row['name']);
+            $q = "DELETE FROM `devdb`.`photos` WHERE `photos`.`name` = '" . $row['name'] . "'";
+            DataBaseService::Query(0, $q);
+        }
+
+        $q = "DELETE FROM `devdb`.`gallery` WHERE `gallery`.`Id` = " . $_GET['gallery'];
+        DataBaseService::Query(0, $q);
+
+        header("Location: CMS.php?action=list_gallery");
     }
 
     public function Presentation() {
-        
+        if (isset($_GET['id'])) {
+            $q = "SELECT gallery.*, users.Name, users.Surname "
+                    . "FROM gallery "
+                    . "LEFT OUTER JOIN users "
+                    . "ON gallery.authorId = users.ID "
+                    . "WHERE gallery.Id = " . $_GET['id'];
+
+            $stmt = DataBaseService::Query(0, $q);
+
+            foreach ($stmt as $row) {
+                $gallery = new GalleryModel;
+                $gallery->Id = $row['Id'];
+                $gallery->title = $row['title'];
+                $gallery->authorName = $row['Name'];
+                $gallery->authorSurname = $row['Surname'];
+                $gallery->date = $row['date'];
+            }
+            
+            $gallery->photos = $this->SelectPhotos($_GET['id']);
+
+            include _ROOT_PATH . DIRECTORY_SEPARATOR . "Presentation" . DIRECTORY_SEPARATOR . "Gallery" . DIRECTORY_SEPARATOR . "GalleryView.php";
+        } else {
+            $q = "SELECT gallery.*, users.Name, users.Surname "
+                    . "FROM gallery "
+                    . "LEFT OUTER JOIN users "
+                    . "ON gallery.authorId = users.ID "
+                    . "ORDER BY gallery.date DESC";
+            $stmt = DataBaseService::Query(0, $q);
+
+            $page = $pages = $posts = 0;
+
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 0;
+            }
+            $i = 0;
+
+            foreach ($stmt as $row) {
+                $gallery[$pages][$posts] = new GalleryModel;
+                $gallery[$pages][$posts]->Id = $row['Id'];
+                $gallery[$pages][$posts]->title = $row['title'];
+                $gallery[$pages][$posts]->authorName = $row['Name'];
+                $gallery[$pages][$posts]->authorSurname = $row['Surname'];
+                $gallery[$pages][$posts]->date = $row['date'];
+                ++$posts;
+
+                if ($posts == 10) {
+                    ++$pages;
+                    $posts = 0;
+                }
+            }
+
+            include _ROOT_PATH . DIRECTORY_SEPARATOR . "Presentation" . DIRECTORY_SEPARATOR . "Gallery" . DIRECTORY_SEPARATOR . "GalleryListView.php";
+        }
     }
 
     public function Read() {
@@ -114,17 +194,7 @@ class GalleryController extends Controller {
                 $gallery->authorName = $row['Name'];
                 $gallery->authorSurname = $row['Surname'];
                 $gallery->date = $row['date'];
-            }
-
-            $q = "SELECT * FROM `photos` WHERE `owner` =" . $_GET['gallery'];
-
-            $stmt = DataBaseService::Query(0, $q);
-            $i = 0;
-
-            foreach ($stmt as $row) {
-                $gallery->photos[$i] = new PhotoModel;
-                $gallery->photos[$i]->name = $row['name'];
-                ++$i;
+                 $gallery->photos = $this->SelectPhotos( $row['Id']);
             }
 
             include $this->viewsPath . "GalleryEditView.php";
