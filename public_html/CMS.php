@@ -97,6 +97,27 @@ if (isset($_SESSION['User'])) {
                 $_SESSION['newsC']->Create();
                 break;
             // </editor-fold>
+            // <editor-fold desc="Akcje Galeri" defaultstate="collapsed">
+            case 'list_gallery';
+                $_SESSION['galleryC']->Read();
+                break;
+            case "delete_gallery":
+                //  Usuwanie wymaga tylko jednej zmiennej, ID rekordu, który ma zostać usunięty.
+                //  Generowany jest linkt, który ma tą zmienną. - W widoku.
+                if (isset($_GET['gallery'])) {
+                    $_SESSION['galleryC']->Delete();
+                }
+                break;
+            case "edit_gallery":
+                if (isset($_GET['gallery'])) {
+                    $_SESSION['galleryC']->Update();
+                }
+                break;
+            case "add_gallery":
+                $_SESSION['galleryC']->Create();
+                break;
+
+            // </editor-fold>
         }
     }
 
@@ -104,19 +125,7 @@ if (isset($_SESSION['User'])) {
     // Post = formularz
     if (isset($_POST['function'])) {
         switch ($_POST['function']) {
-            case 'edit_user';
-                $_SESSION['usersC']->Update();
-                break;
-            case "add_user":
-                $_SESSION['usersC']->Create();
-                break;
-
-            case 'edit_news';
-                $_SESSION['newsC']->Update();
-                break;
-            case "add_news":
-                $_SESSION['newsC']->Create();
-                break;
+            // <editor-fold desc="Akcje kalendarza" defaultstate="collapsed">
 
             case 'edit_calendar';
                 $_SESSION['calendarC']->Update();
@@ -124,6 +133,38 @@ if (isset($_SESSION['User'])) {
             case "add_calendar":
                 $_SESSION['calendarC']->Create();
                 break;
+            // </editor-fold>
+            // <editor-fold desc="Akcje urzytkownika" defaultstate="collapsed">
+
+            case 'edit_user';
+                $_SESSION['usersC']->Update();
+                break;
+            case "add_user":
+                $_SESSION['usersC']->Create();
+                break;
+            // </editor-fold>
+            // <editor-fold desc="Akcje Newsów" defaultstate="collapsed">
+            case 'edit_news';
+                $_SESSION['newsC']->Update();
+                break;
+            case "add_news":
+                $_SESSION['newsC']->Create();
+                break;
+            // </editor-fold>
+            // <editor-fold desc="Akcje Galerii" defaultstate="collapsed">
+            case 'edit_gallery';
+                $_SESSION['galleryC']->Update();
+                break;
+            case "add_gallery":
+                $_SESSION['galleryC']->Create();
+                break;
+            case "add_photo":
+                $_SESSION['galleryC']->InsertImage();
+                break;
+            case "delete_photo":
+                $_SESSION['galleryC']->DeleteImages();
+                break;
+            // </editor-fold>
         }
     }
     //  Widok listy.
