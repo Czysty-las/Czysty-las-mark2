@@ -715,6 +715,11 @@ td > a
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+#addGalleryButton
+{
+    width: 40%;
+}
+
 .galleryItem .title, .button, .author
 {
     float: left;
