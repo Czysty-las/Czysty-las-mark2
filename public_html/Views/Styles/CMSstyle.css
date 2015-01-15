@@ -687,6 +687,9 @@ td > a
 
     background-size: cover;
     float: left;
+    background-position: 50% 50%;
+    
+    margin: 2px;
 }
 
 .galleryEditModule .photo a

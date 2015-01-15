@@ -135,7 +135,6 @@ class NewsController extends Controller {
 
             $page = $pages = $posts = 0;
 
-            ;
             if (isset($_GET['page'])) {
                 $page = $_GET['page'];
             } else {
