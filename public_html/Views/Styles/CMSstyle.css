@@ -668,7 +668,7 @@ td > a
 {
     height: 20%;
     width: 80%;
-margin: 0 auto; 
+    margin: 0 auto; 
 }
 
 .calendarDescriptionTopic
@@ -677,7 +677,7 @@ margin: 0 auto;
     width: 80%;
     display:block;
     margin: 0 auto;
-   
+
 }
 /*</editor-fold>*/
 
@@ -704,7 +704,7 @@ margin: 0 auto;
     background-size: cover;
     float: left;
     background-position: 50% 50%;
-    
+
     margin: 2px;
 }
 
@@ -748,7 +748,8 @@ margin: 0 auto;
     width: 20%;
     height: 50px;
     overflow: hidden;
-    float: left;
+    //float: right;
+    position: relative;
     background-color: transparent;
 }
 
@@ -759,11 +760,9 @@ margin: 0 auto;
     background-color: #a7393b;
 }
 
-
-
 .galleryItem .actions:hover
 {
-    overflow: visible;
+    height: 450px;
 }
 
 .galleryItem .title
