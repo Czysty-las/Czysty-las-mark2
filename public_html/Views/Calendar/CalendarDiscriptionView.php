@@ -15,7 +15,7 @@
             <div class="calendarDescriptionButtons">    
             <a class="formButton" href="CMS.php?action=list_calendar">Wróć</a>
             <a class="formButton" href="CMS.php?action=delete_calendar">Usuń</a>*/
-            <p><button type="submit" name="function" value="edit_calendar">3c======3</button></p>
+            <p><button type="submit" name="function" value="edit_calendar">Zatwierdz</button></p>
             
             </form>
 
