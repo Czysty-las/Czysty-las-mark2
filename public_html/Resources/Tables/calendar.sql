@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 08 Sty 2015, 21:35
+-- Generation Time: 22 Sty 2015, 22:06
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -33,15 +33,14 @@ CREATE TABLE IF NOT EXISTS `calendar` (
   `Topic` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci DEFAULT NULL,
   `Description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_polish_ci,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Zrzut danych tabeli `calendar`
 --
 
 INSERT INTO `calendar` (`Id`, `UserId`, `Date`, `Topic`, `Description`) VALUES
-(1, 6, '2015-01-14', 'Bla1', 'Blabla1'),
-(2, 6, '2015-01-14', 'Bla1', 'Blabla1');
+(3, 1, '2015-01-23', 'Obrona projektu', 'Tego dnia, sekcja pierwsza będzie bronić projektu z przedmiotu Serwisy Internetowe.');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
