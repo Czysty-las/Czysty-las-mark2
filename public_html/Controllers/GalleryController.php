@@ -54,7 +54,7 @@ class GalleryController extends Controller {
 
         $stmt = DataBaseService::Query(0, $q);
         $i = 0;
-
+        $photos = NULL;
         foreach ($stmt as $row) {
             $photos[$i] = new PhotoModel;
             $photos[$i]->name = $row['name'];

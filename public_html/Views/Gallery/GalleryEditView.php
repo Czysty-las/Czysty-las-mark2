@@ -19,14 +19,16 @@
                     </div>
                 </div>
                 <?php $i = 0; ?>
-                <?php foreach ($gallery->photos as $photo) { ?>
-                    <div class="photo" style="background-image: url('./Resources/Images/<?php echo $photo->name; ?>')">
-                        <a href="Resources/Images/<?php echo $photo->name; ?>">
-                            <input name="photo_<?php echo $i; ?>" value="<?php echo $photo->name; ?>" type="checkbox"/>
-                        </a>
-                    </div>
-                    <?php ++$i ?>
-                <?php } ?>
+                <?php if (isset($gallery->photos)) {
+                    foreach ($gallery->photos as $photo) { ?>
+                        <div class="photo" style="background-image: url('./Resources/Images/<?php echo $photo->name; ?>')">
+                            <a href="Resources/Images/<?php echo $photo->name; ?>">
+                                <input name="photo_<?php echo $i; ?>" value="<?php echo $photo->name; ?>" type="checkbox"/>
+                            </a>
+                        </div>
+                        <?php ++$i ?>
+    <?php }
+} ?>
                 <input type="text" hidden="hidden" name="photosNumber" value="<?php echo $i; ?>"/>
             </form>
 
